@@ -5,6 +5,10 @@ git:
 
 dist: trusty
 
+compiler:
+  - gcc
+  - clang
+
 sudo: required
 
 matrix:
