@@ -41,6 +41,7 @@
 #include <fc/io/varint.hpp>
 #include <fc/io/enum_type.hpp>
 #include <fc/crypto/ripemd160.hpp>
+#include <fc/crypto/hash160.hpp>
 #include <fc/crypto/sha1.hpp>
 #include <fc/crypto/sha224.hpp>
 #include <fc/crypto/sha256.hpp>
