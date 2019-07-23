@@ -101,7 +101,8 @@ namespace graphene {
       {
          htlc_obj = &db().get<htlc_object>(o.htlc_id);
 
-         FC_ASSERT(o.preimage.size() == htlc_obj->conditions.hash_lock.preimage_size, "Preimage size mismatch.");
+         FC_ASSERT( htlc_obj->conditions.hash_lock.preimage_size == 0 
+               || o.preimage.size() == htlc_obj->conditions.hash_lock.preimage_size, "Preimage size mismatch.");
          const htlc_redeem_visitor vtor( o.preimage );
          FC_ASSERT( htlc_obj->conditions.hash_lock.preimage_hash.visit( vtor ), 
                "Provided preimage does not generate correct hash.");
