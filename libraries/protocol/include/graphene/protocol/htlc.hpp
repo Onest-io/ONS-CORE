@@ -24,7 +24,6 @@
 #pragma once
 
 #include <fc/time.hpp>
-#include <fc/crypto/hash160.hpp>
 #include <graphene/protocol/base.hpp>
 #include <graphene/protocol/asset.hpp>
 #include <algorithm> // std::max
