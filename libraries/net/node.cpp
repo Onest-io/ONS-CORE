@@ -1103,17 +1103,17 @@ namespace graphene { namespace net { namespace detail {
       VERIFY_CORRECT_THREAD();
 #ifdef USE_PEERS_TO_DELETE_MUTEX
       fc::scoped_lock<fc::mutex> lock(_peers_to_delete_mutex);
-      dlog("in delayed_peer_deletion_task with ${count} in queue", ("count", _peers_to_delete.size()));
+      wlog("in delayed_peer_deletion_task with ${count} in queue", ("count", _peers_to_delete.size()));
       _peers_to_delete.clear();
-      dlog("_peers_to_delete cleared");
+      wlog("_peers_to_delete cleared");
 #else
       while (!_peers_to_delete.empty())
       {
         std::list<peer_connection_ptr> peers_to_delete_copy;
-        dlog("beginning an iteration of delayed_peer_deletion_task with ${count} in queue", ("count", _peers_to_delete.size()));
+        wlog("beginning an iteration of delayed_peer_deletion_task with ${count} in queue", ("count", _peers_to_delete.size()));
         peers_to_delete_copy.swap(_peers_to_delete);
       }
-      dlog("leaving delayed_peer_deletion_task");
+      wlog("leaving delayed_peer_deletion_task");
 #endif
     }
 
