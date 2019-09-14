@@ -974,11 +974,13 @@ namespace graphene { namespace net { namespace detail {
         // if we're going to abruptly disconnect anyone, do it here 
         // (it doesn't yield).  I don't think there would be any harm if this were 
         // moved to the yielding section
+        wlog( "Moving ${n} peers to terminating list", ("n",peers_to_disconnect_forcibly.size()) );
         for( const peer_connection_ptr& peer : peers_to_disconnect_forcibly )
         {
           move_peer_to_terminating_list(peer);
           peer->close_connection();
         }
+        wlog( "Moved ${n} peers to terminating list", ("n",peers_to_disconnect_forcibly.size()) );
         peers_to_disconnect_forcibly.clear();
       } // end ASSERT_TASK_NOT_PREEMPTED()
 
@@ -3269,6 +3271,8 @@ namespace graphene { namespace net { namespace detail {
                 }
               }
             }
+            wlog( "Sending firewall check reply to ${peer}",
+                  ("peer", check_firewall_reply_message_received.endpoint_checked) );
             original_peer->send_message(check_firewall_reply_message_received);
           }
           delete originating_peer->firewall_check_state;
@@ -3926,6 +3930,8 @@ namespace graphene { namespace net { namespace detail {
       {
         // we were connecting to test whether the node is firewalled, and we now know the result.
         // send a message back to the requester
+        wlog( "I was connecting to ${peer_checked} for firewall check, now checking if the requester is still valid",
+              ("peer_checked", new_peer->get_remote_endpoint()) );
         peer_connection_ptr requesting_peer = get_peer_by_node_id(new_peer->firewall_check_state->requesting_peer);
         if (requesting_peer)
         {
