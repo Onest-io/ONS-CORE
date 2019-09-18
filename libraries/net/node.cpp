@@ -532,7 +532,7 @@ namespace graphene { namespace net { namespace detail {
           std::map<peer_connection_ptr, std::vector<item_hash_t> > sync_item_requests_to_send;
 
           {
-            ASSERT_TASK_NOT_PREEMPTED();
+            //ASSERT_TASK_NOT_PREEMPTED();
             std::set<item_hash_t> sync_items_to_request;
 
             // for each idle peer that we're syncing with
@@ -838,7 +838,8 @@ namespace graphene { namespace net { namespace detail {
         // As usual, the first step is to walk through all our peers and figure out which
         // peers need action (disconneting, sending keepalives, etc), then we walk through 
         // those lists yielding at our leisure later.
-        ASSERT_TASK_NOT_PREEMPTED();
+
+        //ASSERT_TASK_NOT_PREEMPTED();
 
         uint32_t handshaking_timeout = _peer_inactivity_timeout;
         fc::time_point handshaking_disconnect_threshold = fc::time_point::now() - fc::seconds(handshaking_timeout);
@@ -2676,7 +2677,7 @@ namespace graphene { namespace net { namespace detail {
 
             for (const peer_connection_ptr& peer : _active_connections)
             {
-               ASSERT_TASK_NOT_PREEMPTED(); // don't yield while iterating over _active_connections
+               //ASSERT_TASK_NOT_PREEMPTED(); // don't yield while iterating over _active_connections
                bool disconnecting_this_peer = false;
                if (is_fork_block)
                {
@@ -2751,7 +2752,7 @@ namespace graphene { namespace net { namespace detail {
         fc::scoped_lock<fc::mutex> lock(_active_connections.get_mutex());
         for (const peer_connection_ptr& peer : _active_connections)
         {
-          ASSERT_TASK_NOT_PREEMPTED(); // don't yield while iterating over _active_connections
+          //ASSERT_TASK_NOT_PREEMPTED(); // don't yield while iterating over _active_connections
 
           if (peer->ids_of_items_being_processed.find(block_message_to_send.block_id)
                  != peer->ids_of_items_being_processed.end())
@@ -2858,7 +2859,7 @@ namespace graphene { namespace net { namespace detail {
             fc::scoped_lock<fc::mutex> lock(_active_connections.get_mutex());
             for (const peer_connection_ptr& peer : _active_connections)
             {
-               ASSERT_TASK_NOT_PREEMPTED(); // don't yield while iterating over _active_connections
+               //ASSERT_TASK_NOT_PREEMPTED(); // don't yield while iterating over _active_connections
                if (!peer->ids_of_items_to_get.empty() &&
                      peer->ids_of_items_to_get.front() == received_block_iter->block_id)
                {
@@ -3021,7 +3022,7 @@ namespace graphene { namespace net { namespace detail {
          fc::scoped_lock<fc::mutex> lock(_active_connections.get_mutex());
          for (const peer_connection_ptr& peer : _active_connections)
          {
-            ASSERT_TASK_NOT_PREEMPTED(); // don't yield while iterating over _active_connections
+            //ASSERT_TASK_NOT_PREEMPTED(); // don't yield while iterating over _active_connections
 
             auto iter = peer->inventory_peer_advertised_to_us.find(block_message_item_id);
             if (iter != peer->inventory_peer_advertised_to_us.end())
@@ -3422,7 +3423,7 @@ namespace graphene { namespace net { namespace detail {
       fc::scoped_lock<fc::mutex> lock(_active_connections.get_mutex());
       for (const peer_connection_ptr& peer : _active_connections)
       {
-        ASSERT_TASK_NOT_PREEMPTED(); // don't yield while iterating over _active_connections
+        //ASSERT_TASK_NOT_PREEMPTED(); // don't yield while iterating over _active_connections
 
         current_connection_data data_for_this_peer;
         data_for_this_peer.connection_duration = now.sec_since_epoch() - peer->connection_initiation_time.sec_since_epoch();
@@ -4525,7 +4526,7 @@ namespace graphene { namespace net { namespace detail {
       fc::scoped_lock<fc::mutex> lock(_active_connections.get_mutex());
       for (const peer_connection_ptr& peer : _active_connections)
       {
-        ASSERT_TASK_NOT_PREEMPTED(); // don't yield while iterating over _active_connections
+        //ASSERT_TASK_NOT_PREEMPTED(); // don't yield while iterating over _active_connections
 
         peer_status this_peer_status;
         this_peer_status.version = 0;
