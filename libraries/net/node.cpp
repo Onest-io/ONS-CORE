@@ -3256,6 +3256,15 @@ namespace graphene { namespace net { namespace detail {
         reply.node_id = firewall_check_state->expected_node_id;
         reply.endpoint_checked = firewall_check_state->endpoint_to_test;
         reply.result = firewall_check_result::unable_to_check;
+        auto peer_node_id = fc::to_hex( (char*)originating_peer->node_id.data(), originating_peer->node_id.size() );
+        wdump( (int64_t(originating_peer.get()))
+               (originating_peer->direction)
+               (originating_peer->connection_initiation_time)
+               (originating_peer->our_state)
+               (originating_peer->their_state)
+               (originating_peer->negotiation_status)
+               (originating_peer->user_agent) // will be set before node_id in on_hello
+               (peer_node_id) );
         originating_peer->send_message(reply);
       }
       delete firewall_check_state;
@@ -3273,7 +3282,9 @@ namespace graphene { namespace net { namespace detail {
         // we're not going to try to connect back to the originating peer directly,
         // instead, we're going to coordinate requests by asking some of our peers
         // to try to connect to the originating peer, and relay the results back
-        wlog("Peer ${peer} wants us to check whether it is firewalled", ("peer", originating_peer->get_remote_endpoint()));
+        wlog( "Peer ${peer_ptr} ${peer} wants us to check whether it is firewalled",
+              ("peer_ptr", int64_t(originating_peer))
+              ("peer", originating_peer->get_remote_endpoint()));
         firewall_check_state_data* firewall_check_state = new firewall_check_state_data;
         // if they are using the same inbound and outbound port, try connecting to their outbound endpoint.
         // if they are using a different inbound port, use their outbound address but the inbound port they reported
@@ -3303,6 +3314,10 @@ namespace graphene { namespace net { namespace detail {
         {
           // we're not connected to them, so we need to set up a connection to them
           // to test.
+          wlog( "Peer ${peer_ptr} ${peer} wants us to check whether ${test} is firewalled",
+                ("peer_ptr", int64_t(originating_peer))
+                ("peer", originating_peer->get_remote_endpoint())
+                ("test", check_firewall_message_received.endpoint_to_check) );
           peer_connection_ptr peer_for_testing(peer_connection::make_shared(this));
           peer_for_testing->firewall_check_state = new firewall_check_state_data;
           peer_for_testing->firewall_check_state->endpoint_to_test = check_firewall_message_received.endpoint_to_check;
@@ -3354,8 +3369,17 @@ namespace graphene { namespace net { namespace detail {
                 }
               }
             }
-            wlog( "Sending firewall check reply to ${peer}",
+            wlog( "Sending firewall check reply to ${peer_ptr} ${peer}",
+                  ("peer_ptr", int64_t(original_peer.get()))
                   ("peer", check_firewall_reply_message_received.endpoint_checked) );
+            auto peer_node_id = fc::to_hex( (char*)original_peer->node_id.data(), original_peer->node_id.size() );
+            wdump( (original_peer->direction)
+                   (original_peer->connection_initiation_time)
+                   (original_peer->our_state)
+                   (original_peer->their_state)
+                   (original_peer->negotiation_status)
+                   (original_peer->user_agent) // will be set before node_id in on_hello
+                   (peer_node_id) );
             original_peer->send_message(check_firewall_reply_message_received);
           }
           delete originating_peer->firewall_check_state;
@@ -4036,10 +4060,19 @@ namespace graphene { namespace net { namespace detail {
           reply.result = connect_failed_exception ?
                            firewall_check_result::unable_to_connect :
                            firewall_check_result::connection_successful;
-          wlog("firewall check of ${peer_checked} ${success_or_failure}, sending reply to ${requester}",
+          wlog("firewall check of ${peer_checked} ${success_or_failure}, sending reply to ${peer_ptr} ${requester} ",
                 ("peer_checked", new_peer->get_remote_endpoint())
                 ("success_or_failure", connect_failed_exception ? "failed" : "succeeded" )
+                ("peer_ptr", int64_t(requesting_peer.get()))
                 ("requester", requesting_peer->get_remote_endpoint()));
+          auto peer_node_id = fc::to_hex( (char*)requesting_peer->node_id.data(), requesting_peer->node_id.size() );
+          wdump( (requesting_peer->direction)
+                 (requesting_peer->connection_initiation_time)
+                 (requesting_peer->our_state)
+                 (requesting_peer->their_state)
+                 (requesting_peer->negotiation_status)
+                 (requesting_peer->user_agent) // will be set before node_id in on_hello
+                 (peer_node_id) );
 
           requesting_peer->send_message(reply);
         }
