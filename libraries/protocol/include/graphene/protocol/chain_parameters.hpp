@@ -83,6 +83,7 @@ namespace graphene { namespace protocol {
       {
          optional< htlc_options > updatable_htlc_options;
          optional< custom_authority_options_type > custom_authority_options;
+         optional< uint8_t > market_fee_network_percent;
       };
 
       extension<ext> extensions;
@@ -117,6 +118,7 @@ FC_REFLECT( graphene::protocol::custom_authority_options_type,
 FC_REFLECT( graphene::protocol::chain_parameters::ext,
       (updatable_htlc_options)
       (custom_authority_options)
+      (market_fee_network_percent)
 )
 
 FC_REFLECT( graphene::protocol::chain_parameters,

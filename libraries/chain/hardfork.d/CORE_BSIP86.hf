@@ -1,0 +1,4 @@
+// bitshares-core BSIP 86 Trading fees to network
+#ifndef HARDFORK_CORE_BSIP86_TIME
+#define HARDFORK_CORE_BSIP86_TIME (fc::time_point_sec( 1679944188 )) // Temporary date in the future
+#endif

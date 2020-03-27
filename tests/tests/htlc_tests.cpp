@@ -336,17 +336,7 @@ BOOST_AUTO_TEST_CASE( htlc_hardfork_test )
          cmuop.new_parameters.extensions.value.updatable_htlc_options = new_params;
          cop.proposed_ops.emplace_back(cmuop);
          trx.operations.push_back(cop);
-         // update with signatures
-         proposal_update_operation uop;
-         uop.fee_paying_account = GRAPHENE_TEMP_ACCOUNT;
-         uop.active_approvals_to_add = {get_account("init0").get_id(), get_account("init1").get_id(),
-                                       get_account("init2").get_id(), get_account("init3").get_id(),
-                                       get_account("init4").get_id(), get_account("init5").get_id(),
-                                       get_account("init6").get_id(), get_account("init7").get_id()};
-         trx.operations.push_back(uop);
-         sign( trx, init_account_priv_key );
-         BOOST_TEST_MESSAGE("Sending proposal.");
-         GRAPHENE_CHECK_THROW(db.push_transaction(trx), fc::exception);
+         GRAPHENE_CHECK_THROW( PUSH_TX( db, trx ), fc::exception );
          BOOST_TEST_MESSAGE("Verifying that proposal did not succeeed.");
          BOOST_CHECK(!db.get_global_properties().parameters.extensions.value.updatable_htlc_options.valid());
          trx.clear();
@@ -354,7 +344,6 @@ BOOST_AUTO_TEST_CASE( htlc_hardfork_test )
 
       {
          BOOST_TEST_MESSAGE("Attempting to set HTLC fees before hard fork.");
-
          // get existing fee_schedule
          const chain_parameters& existing_params = db.get_global_properties().parameters;
          const fee_schedule_type& existing_fee_schedule = *(existing_params.current_fees);

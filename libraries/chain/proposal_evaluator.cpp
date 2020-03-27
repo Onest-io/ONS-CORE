@@ -43,10 +43,15 @@ struct proposal_operation_hardfork_visitor
 
    void operator()(const graphene::chain::committee_member_update_global_parameters_operation &op) const {
       if (block_time < HARDFORK_CORE_1468_TIME) {
-         FC_ASSERT(!op.new_parameters.extensions.value.updatable_htlc_options.valid(), "Unable to set HTLC options before hardfork 1468");
+         FC_ASSERT(!op.new_parameters.extensions.value.updatable_htlc_options.valid(), 
+               "Unable to set HTLC options before hardfork 1468");
          FC_ASSERT(!op.new_parameters.current_fees->exists<htlc_create_operation>());
          FC_ASSERT(!op.new_parameters.current_fees->exists<htlc_redeem_operation>());
          FC_ASSERT(!op.new_parameters.current_fees->exists<htlc_extend_operation>());
+      }
+      if (block_time < HARDFORK_CORE_BSIP86_TIME) {
+         FC_ASSERT( !op.new_parameters.extensions.value.market_fee_network_percent.valid(), 
+               "Unable to set market fee percent before hardfork.");
       }
       if (!HARDFORK_BSIP_40_PASSED(block_time)) {
          FC_ASSERT(!op.new_parameters.extensions.value.custom_authority_options.valid(),

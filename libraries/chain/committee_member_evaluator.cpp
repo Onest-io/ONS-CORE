@@ -80,6 +80,8 @@ void_result committee_member_update_global_parameters_evaluator::do_evaluate(
    auto now = db().head_block_time();
    FC_ASSERT( now > HARDFORK_CORE_1468_TIME || !o.new_parameters.extensions.value.updatable_htlc_options.valid(),
          "Unable to set HTLC parameters until hardfork." );
+   FC_ASSERT( now > HARDFORK_CORE_BSIP86_TIME || !o.new_parameters.extensions.value.market_fee_network_percent.valid(),
+         "Unable to set market fee network percent until hardfork." );
    if (!HARDFORK_BSIP_40_PASSED( now )) {
       FC_ASSERT( !o.new_parameters.extensions.value.custom_authority_options.valid(),
                  "Unable to set Custom Authority Options until hardfork BSIP 40." );
