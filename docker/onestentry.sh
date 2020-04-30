@@ -1,8 +1,8 @@
 #!/bin/bash
-BITSHARESD="/usr/local/bin/witness_node"
+ONESTD="/usr/local/bin/witness_node"
 
 # For blockchain download
-VERSION=`cat /etc/bitshares/version`
+VERSION=`cat /etc/onest/version`
 
 ## Supported Environmental Variables
 #
