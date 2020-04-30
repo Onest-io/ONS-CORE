@@ -1,5 +1,5 @@
 FROM phusion/baseimage:0.11
-MAINTAINER The bitshares decentralized organisation
+MAINTAINER The onest decentralized organisation
 
 ENV LANG=en_US.UTF-8
 RUN \
@@ -32,8 +32,8 @@ RUN \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ADD . /bitshares-core
-WORKDIR /bitshares-core
+ADD . /onest-core
+WORKDIR /onest-core
 
 # Compile
 RUN \
@@ -53,19 +53,19 @@ RUN \
     install -s programs/witness_node/witness_node programs/genesis_util/get_dev_key programs/cli_wallet/cli_wallet /usr/local/bin && \
     #
     # Obtain version
-    mkdir /etc/bitshares && \
-    git rev-parse --short HEAD > /etc/bitshares/version && \
+    mkdir /etc/onest && \
+    git rev-parse --short HEAD > /etc/onest/version && \
     cd / && \
-    rm -rf /bitshares-core
+    rm -rf /onest-core
 
 # Home directory $HOME
 WORKDIR /
-RUN useradd -s /bin/bash -m -d /var/lib/bitshares bitshares
-ENV HOME /var/lib/bitshares
-RUN chown bitshares:bitshares -R /var/lib/bitshares
+RUN useradd -s /bin/bash -m -d /var/lib/onest onest
+ENV HOME /var/lib/onest
+RUN chown onest:onest -R /var/lib/onest
 
 # Volume
-VOLUME ["/var/lib/bitshares", "/etc/bitshares"]
+VOLUME ["/var/lib/onest", "/etc/onest"]
 
 # rpc service:
 EXPOSE 8090
@@ -73,12 +73,12 @@ EXPOSE 8090
 EXPOSE 1776
 
 # default exec/config files
-ADD docker/default_config.ini /etc/bitshares/config.ini
-ADD docker/bitsharesentry.sh /usr/local/bin/bitsharesentry.sh
-RUN chmod a+x /usr/local/bin/bitsharesentry.sh
+ADD docker/default_config.ini /etc/onest/config.ini
+ADD docker/onestentry.sh /usr/local/bin/onestentry.sh
+RUN chmod a+x /usr/local/bin/onestentry.sh
 
 # Make Docker send SIGINT instead of SIGTERM to the daemon
 STOPSIGNAL SIGINT
 
 # default execute entry
-CMD ["/usr/local/bin/bitsharesentry.sh"]
+CMD ["/usr/local/bin/onestentry.sh"]
