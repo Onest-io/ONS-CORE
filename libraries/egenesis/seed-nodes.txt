@@ -1,2 +1,2 @@
 // seed nodes
-"seed01.onest.network:1776",          // ioBanker     (GERMANY)
+"seed01.ons.network:1776",          // ioBanker     (GERMANY)
