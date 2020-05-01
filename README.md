@@ -140,7 +140,7 @@ necessary to use the wallet:
        "permission_map" :
        [
           [
-             "bytemaster",
+             "iobanker",
              {
                 "password_hash_b64" : "9e9GF7ooXVb9k4BoSfNIPTelXeGOZ5DrgOYMj94elaY=",
                 "password_salt_b64" : "INDdM6iCi/8=",
@@ -163,7 +163,7 @@ A single asterisk `"*"` may be specified as username or password hash to accept 
 
 With the above configuration, here is an example of how to call `add_node` from the `network_node` API:
 
-    {"id":1, "method":"call", "params":[1,"login",["bytemaster", "supersecret"]]}
+    {"id":1, "method":"call", "params":[1,"login",["iobanker", "supersecret"]]}
     {"id":2, "method":"call", "params":[1,"network_node",[]]}
     {"id":3, "method":"call", "params":[2,"add_node",["127.0.0.1:9090"]]}
 
