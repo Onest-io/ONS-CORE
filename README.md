@@ -1,4 +1,4 @@
-[Build Status](https://travis-ci.org/bitshares/bitshares-core/branches):
+[Build Status](https://travis-ci.org/Onest-io/ONS-CORE/branches):
 
 `master` 
  --- 
