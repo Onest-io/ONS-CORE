@@ -246,5 +246,5 @@ FAQ
  
 License
 -------
-Onest Core is under the MIT license. See [LICENSE](https://github.com/Onest-io/ONS-CORE/blob/master/LICENSE.txt)
+Onest Core Code is under the MIT license. See [LICENSE](https://github.com/Onest-io/ONS-CORE/blob/master/LICENSE.txt)
 for more information.
