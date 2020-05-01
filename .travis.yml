@@ -22,5 +22,7 @@ env:
     - CCACHE_SLOPPINESS=include_file_ctime,include_file_mtime,time_macros
 jobs:
   include:
-    - stage: build for cache
-      script: cd /home/travis/build/Onest-io/ONS-CORE & cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo . & make
+     - stage: cd
+      script: cd /home/travis/build/Onest-io/ONS-CORE
+     - stage: make
+      script: make
