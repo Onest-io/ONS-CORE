@@ -23,4 +23,4 @@ env:
 jobs:
   include:
     - stage: build for cache
-      script: ./programs/build_helpers/make_with_sonar
+      script: make
