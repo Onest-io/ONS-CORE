@@ -24,5 +24,3 @@ jobs:
   include:
      - stage: cd
       script: cd /home/travis/build/Onest-io/ONS-CORE
-     - stage: make
-      script: make
