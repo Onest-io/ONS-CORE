@@ -1,26 +1,13 @@
-language: c++
+addons:
+  sonarcloud:
+    organization: "onest-io"
+    token:
+      secure: "53abb9822c1729b5b499ec7a2f2336dd42528770" # encrypted value of your token
 
-cache:
-  ccache: true
-  directories:
-  - sonar_cache
-
-git:
-  depth: 1
-
-dist: xenial
-
-sudo: true
-
-install:
- - sudo apt-get install --allow-unauthenticated libboost-thread-dev libboost-iostreams-dev libboost-date-time-dev libboost-system-dev libboost-filesystem-dev libboost-program-options-dev libboost-chrono-dev libboost-test-dev libboost-context-dev libboost-regex-dev libboost-coroutine-dev cmake parallel
-
-env:
-  global:
-    - CCACHE_COMPRESS=exists_means_true
-    - CCACHE_MAXSIZE=1Gi
-    - CCACHE_SLOPPINESS=include_file_ctime,include_file_mtime,time_macros
-jobs:
-  include:
-     - stage: build and test
-      script: cd /home/travis/build/Onest-io/ONS-CORE
+script:
+  # Wraps the compilation with the Build Wrapper to generate configuration (used
+  # later by the SonarScanner) into the "bw-output" folder
+  - build-wrapper-linux-x86-64 --out-dir bw-output <your clean build command>
+  # And finally run the SonarCloud analysis - read the "sonar-project.properties"
+  # file to see the specific configuration
+  - sonar-scanner -Dsonar.cfamily.build-wrapper-output=bw-output
