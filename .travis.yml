@@ -20,3 +20,9 @@ env:
     - CCACHE_COMPRESS=exists_means_true
     - CCACHE_MAXSIZE=1Gi
     - CCACHE_SLOPPINESS=include_file_ctime,include_file_mtime,time_macros
+jobs:
+  include:
+    - stage: build for cache
+      script: ./programs/build_helpers/build_protocol
+    - stage: build and test
+      script: ./programs/build_helpers/build_and_test
