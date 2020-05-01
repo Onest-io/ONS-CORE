@@ -23,6 +23,4 @@ env:
 jobs:
   include:
     - stage: build for cache
-      script: ./programs/build_helpers/build_protocol
-    - stage: build and test
-      script: ./programs/build_helpers/build_and_test
+      script: ./programs/build_helpers/make_with_sonar
