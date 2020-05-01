@@ -23,4 +23,4 @@ env:
 jobs:
   include:
     - stage: build for cache
-      script: make
+      script: cd /home/travis/build/Onest-io/ONS-CORE & cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo . & make
