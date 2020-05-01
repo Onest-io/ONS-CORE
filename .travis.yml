@@ -22,5 +22,5 @@ env:
     - CCACHE_SLOPPINESS=include_file_ctime,include_file_mtime,time_macros
 jobs:
   include:
-     - stage: cd
+     - stage: build and test
       script: cd /home/travis/build/Onest-io/ONS-CORE
