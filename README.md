@@ -1,3 +1,9 @@
+[Build Status](https://travis-ci.org/bitshares/bitshares-core/branches):
+
+`master` 
+ --- 
+ [![](https://travis-ci.org/github/Onest-io/ONS-CORE.svg?branch=master)](https://travis-ci.org/github/Onest-io/ONS-CORE)
+
 Onest-io Core
 ==============
 
