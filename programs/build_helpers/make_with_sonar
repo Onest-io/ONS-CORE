@@ -1,8 +1,9 @@
-#!/bin/sh
+#!/bin/bash
+set -e
 
-OUT_DIR="$1"
-shift
-if which build-wrapper-linux-x86-64 >/dev/null; then
-    exec build-wrapper-linux-x86-64 --out-dir "$OUT_DIR" make "$@"
-fi
-exec make "$@"
+programs/build_helpers/buildstep -s 3500
+ccache -s
+programs/build_helpers/buildstep cmake 5 "cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_FLAGS=--coverage -DCMAKE_CXX_FLAGS=--coverage -DBoost_USE_STATIC_LIBS=OFF -DCMAKE_CXX_OUTPUT_EXTENSION_REPLACE=ON ."
+programs/build_helpers/buildstep make.custom_auths 1000 "make -j 2 graphene_protocol"
+programs/build_helpers/buildstep end 0
+ccache -s
