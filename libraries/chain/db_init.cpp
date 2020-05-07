@@ -385,6 +385,33 @@ void database::init_genesis(const genesis_state_type& genesis_state)
    FC_ASSERT( get_balance(account_id_type(), asset_id_type()) == asset(dyn_asset.current_supply) );
    _p_core_asset_obj = &core_asset;
    _p_core_dynamic_data_obj = &dyn_asset;
+   
+      // Create core asset vote
+   const asset_dynamic_data_object& dyn_asset =
+      create<asset_dynamic_data_object>([](asset_dynamic_data_object& a) {
+         a.current_supply = GRAPHENE_MAX_SHARE_SUPPLY;
+      });
+   const asset_object& core_asset =
+     create<asset_object>( [&genesis_state,&dyn_asset]( asset_object& a ) {
+         a.symbol = GRAPHENE_SYMBOL_VOTE;
+         a.options.max_supply = genesis_state.max_core_supply;
+         a.precision = GRAPHENE_BLOCKCHAIN_PRECISION_DIGITS;
+         a.options.flags = 0;
+         a.options.issuer_permissions = 0;
+         a.issuer = GRAPHENE_NULL_ACCOUNT;
+         a.options.core_exchange_rate.base.amount = 1;
+         a.options.core_exchange_rate.base.asset_id = asset_id_type(0);
+         a.options.core_exchange_rate.quote.amount = 1;
+         a.options.core_exchange_rate.quote.asset_id = asset_id_type(0);
+         a.dynamic_asset_data_id = dyn_asset.id;
+      });
+   FC_ASSERT( dyn_asset.id == asset_dynamic_data_id_type() );
+   FC_ASSERT( asset_id_type(core_asset.id) == asset().asset_id );
+   FC_ASSERT( get_balance(account_id_type(), asset_id_type()) == asset(dyn_asset.current_supply) );
+   _p_core_asset_obj = &core_asset;
+   _p_core_dynamic_data_obj = &dyn_asset;
+   
+   
    // Create more special assets
    while( true )
    {
