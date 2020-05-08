@@ -573,15 +573,6 @@ void database::init_genesis(const genesis_state_type& genesis_state)
             b.asset_id = new_asset_id;
          }).id;
       }
-         bitasset_data_id = create<asset_bitasset_data_object>([&core_asset_vote,new_asset_id](asset_bitasset_data_object& b) {
-            b.options.short_backing_asset = core_asset_vote.id;
-            b.options.minimum_feeds = GRAPHENE_DEFAULT_MINIMUM_FEEDS;
-            b.asset_id = new_asset_id;
-         }).id;
-      }
-      dynamic_data_id = create<asset_dynamic_data_object>([&asset](asset_dynamic_data_object& d) {
-         d.accumulated_fees = asset.accumulated_fees;
-      }).id;
 
       total_supplies[ new_asset_id ] += asset.accumulated_fees;
 
