@@ -387,7 +387,11 @@ void database::init_genesis(const genesis_state_type& genesis_state)
    _p_core_dynamic_data_obj = &dyn_asset;
    
       // Create core asset vote
-   const asset_object& core_asset =
+      const asset_dynamic_data_object& dyn_asset =
+      create<asset_dynamic_data_object>([](asset_dynamic_data_object& a) {
+         a.current_supply = GRAPHENE_MAX_SHARE_SUPPLY;
+      });
+   const asset_object& core_asset_vote =
      create<asset_object>( [&genesis_state,&dyn_asset]( asset_object& a ) {
          a.symbol = GRAPHENE_SYMBOL_VOTE;
          a.options.max_supply = genesis_state.max_core_supply;
@@ -402,9 +406,9 @@ void database::init_genesis(const genesis_state_type& genesis_state)
          a.dynamic_asset_data_id = dyn_asset.id;
       });
    FC_ASSERT( dyn_asset.id == asset_dynamic_data_id_type() );
-   FC_ASSERT( asset_id_type(core_asset.id) == asset().asset_id );
+   FC_ASSERT( asset_id_type(core_asset_vote.id) == asset().asset_id );
    FC_ASSERT( get_balance(account_id_type(), asset_id_type()) == asset(dyn_asset.current_supply) );
-   _p_core_asset_obj = &core_asset;
+   _p_core_asset_obj = &core_asset_vote;
    _p_core_dynamic_data_obj = &dyn_asset;
    
    
@@ -548,7 +552,14 @@ void database::init_genesis(const genesis_state_type& genesis_state)
                                                 chain::asset(c.collateral, core_asset.id),
                                                 GRAPHENE_DEFAULT_MAINTENANCE_COLLATERAL_RATIO);
             });
-
+            create<call_order_object>([&](call_order_object& c) {
+               c.borrower = owner_account_id;
+               c.collateral = collateral_rec.collateral;
+               c.debt = collateral_rec.debt;
+               c.call_price = price::call_price(chain::asset(c.debt, new_asset_id),
+                                                chain::asset(c.collateral, core_asset_vote.id),
+                                                GRAPHENE_DEFAULT_MAINTENANCE_COLLATERAL_RATIO);
+            });
             total_supplies[ asset_id_type(0) ] += collateral_rec.collateral;
             total_debts[ new_asset_id ] += collateral_rec.debt;
             ++collateral_holder_number;
@@ -560,7 +571,12 @@ void database::init_genesis(const genesis_state_type& genesis_state)
             b.asset_id = new_asset_id;
          }).id;
       }
-
+         bitasset_data_id = create<asset_bitasset_data_object>([&core_asset_vote,new_asset_id](asset_bitasset_data_object& b) {
+            b.options.short_backing_asset = core_asset_vote.id;
+            b.options.minimum_feeds = GRAPHENE_DEFAULT_MINIMUM_FEEDS;
+            b.asset_id = new_asset_id;
+         }).id;
+      }
       dynamic_data_id = create<asset_dynamic_data_object>([&asset](asset_dynamic_data_object& d) {
          d.accumulated_fees = asset.accumulated_fees;
       }).id;
