@@ -311,6 +311,10 @@
       "owner": "ONSFAbAx7yuxt725qSZvfwWqkdCwp9ZnUama",
       "asset_symbol": "ONS",
       "amount": "1000000000000000"
+    }, 
+      "owner": "ONSFAbAx7yuxt725qSZvfwWqkdCwp9ZnUama",
+      "asset_symbol": "VOTE",
+      "amount": "1000000000000000"
     }
   ],
   "initial_vesting_balances": [],
