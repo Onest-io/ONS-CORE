@@ -306,7 +306,7 @@
       "is_lifetime_member": false
     }
   ],
-  "initial_assets": [],
+  "initial_assets":[{"accumulated_fees":0,"collateral_records":[],"description":"Voting uqility","is_bitasset":false,"issuer_name":"null-account","max_supply":"1000000000000000","precision":4,"symbol":"VOTE"}],
   "initial_balances": [{
       "owner": "ONSFAbAx7yuxt725qSZvfwWqkdCwp9ZnUama",
       "asset_symbol": "ONS",
