@@ -554,14 +554,6 @@ void database::init_genesis(const genesis_state_type& genesis_state)
                                                 chain::asset(c.collateral, core_asset.id),
                                                 GRAPHENE_DEFAULT_MAINTENANCE_COLLATERAL_RATIO);
             });
-            create<call_order_object>([&](call_order_object& c) {
-               c.borrower = owner_account_id;
-               c.collateral = collateral_rec.collateral;
-               c.debt = collateral_rec.debt;
-               c.call_price = price::call_price(chain::asset(c.debt, new_asset_id),
-                                                chain::asset(c.collateral, core_asset_vote.id),
-                                                GRAPHENE_DEFAULT_MAINTENANCE_COLLATERAL_RATIO);
-            });
             total_supplies[ asset_id_type(0) ] += collateral_rec.collateral;
             total_debts[ new_asset_id ] += collateral_rec.debt;
             ++collateral_holder_number;
