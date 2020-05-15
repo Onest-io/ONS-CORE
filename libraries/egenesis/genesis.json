@@ -1,5 +1,5 @@
 {
-  "initial_timestamp": "2019-02-14T20:32:55",
+  "initial_timestamp": "2020-05-15T20:32:55",
   "max_core_supply": "365867569200000",
   "initial_parameters": {
     "current_fees": {
@@ -245,57 +245,57 @@
     }
   },
   "initial_accounts": [{
-      "name": "init0",
+      "name": "onest0",
       "owner_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "active_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "is_lifetime_member": true
     },{
-      "name": "init1",
+      "name": "onest1",
       "owner_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "active_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "is_lifetime_member": true
     },{
-      "name": "init2",
+      "name": "onest2",
       "owner_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "active_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "is_lifetime_member": true
     },{
-      "name": "init3",
+      "name": "onest3",
       "owner_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "active_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "is_lifetime_member": true
     },{
-      "name": "init4",
+      "name": "onest4",
       "owner_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "active_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "is_lifetime_member": true
     },{
-      "name": "init5",
+      "name": "onest5",
       "owner_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "active_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "is_lifetime_member": true
     },{
-      "name": "init6",
+      "name": "onest6",
       "owner_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "active_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "is_lifetime_member": true
     },{
-      "name": "init7",
+      "name": "onest7",
       "owner_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "active_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "is_lifetime_member": true
     },{
-      "name": "init8",
+      "name": "onest8",
       "owner_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "active_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "is_lifetime_member": true
     },{
-      "name": "init9",
+      "name": "onest9",
       "owner_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "active_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "is_lifetime_member": true
     },{
-      "name": "init10",
+      "name": "onest10",
       "owner_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "active_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "is_lifetime_member": true
@@ -310,79 +310,79 @@
   "initial_balances": [{
       "owner": "ONSFAbAx7yuxt725qSZvfwWqkdCwp9ZnUama",
       "asset_symbol": "ONS",
-      "amount": "1000000000000000"
+      "amount": "365867569200000"
     }, {
       "owner": "ONSFAbAx7yuxt725qSZvfwWqkdCwp9ZnUama",
       "asset_symbol": "VOTE",
-      "amount": "1000000000000000"
+      "amount": "365867569267000"
     }
   ],
   "initial_vesting_balances": [],
-  "initial_active_witnesses": 11,
+  "initial_active_witnesses": 13,
   "initial_witness_candidates": [{
-      "owner_name": "init0",
+      "owner_name": "onest0",
       "block_signing_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
     },{
-      "owner_name": "init1",
+      "owner_name": "onest1",
       "block_signing_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
     },{
-      "owner_name": "init2",
+      "owner_name": "onest2",
       "block_signing_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
     },{
-      "owner_name": "init3",
+      "owner_name": "onest3",
       "block_signing_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
     },{
-      "owner_name": "init4",
+      "owner_name": "onest4",
       "block_signing_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
     },{
-      "owner_name": "init5",
+      "owner_name": "onest5",
       "block_signing_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
     },{
-      "owner_name": "init6",
+      "owner_name": "onest6",
       "block_signing_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
     },{
-      "owner_name": "init7",
+      "owner_name": "onest7",
       "block_signing_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
     },{
-      "owner_name": "init8",
+      "owner_name": "onest8",
       "block_signing_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
     },{
-      "owner_name": "init9",
+      "owner_name": "onest9",
       "block_signing_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
     },{
-      "owner_name": "init10",
+      "owner_name": "onest10",
       "block_signing_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
     }
   ],
   "initial_committee_candidates": [{
-      "owner_name": "init0"
+      "owner_name": "onest0"
     },{
-      "owner_name": "init1"
+      "owner_name": "onest1"
     },{
-      "owner_name": "init2"
+      "owner_name": "onest2"
     },{
-      "owner_name": "init3"
+      "owner_name": "onest3"
     },{
-      "owner_name": "init4"
+      "owner_name": "onest4"
     },{
-      "owner_name": "init5"
+      "owner_name": "onest5"
     },{
-      "owner_name": "init6"
+      "owner_name": "onest6"
     },{
-      "owner_name": "init7"
+      "owner_name": "onest7"
     },{
-      "owner_name": "init8"
+      "owner_name": "onest8"
     },{
-      "owner_name": "init9"
+      "owner_name": "onest9"
     },{
-      "owner_name": "init10"
+      "owner_name": "onest10"
     }
   ],
   "initial_worker_candidates": [],
   "initial_chain_id": "f0aa8b5cb5524829da1f7946aded03c42e325807957d20c7867c2c9cb659a9bf",
   "immutable_parameters": {
-    "min_committee_member_count": 11,
-    "min_witness_count": 11,
+    "min_committee_member_count": 9,
+    "min_witness_count": 9,
     "num_special_accounts": 0,
     "num_special_assets": 0
   }
