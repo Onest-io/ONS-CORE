@@ -38,7 +38,8 @@
 #define GRAPHENE_MIN_ASSET_SYMBOL_LENGTH 3
 #define GRAPHENE_MAX_ASSET_SYMBOL_LENGTH 16
 
-#define GRAPHENE_MAX_SHARE_SUPPLY int64_t(1000000000000000ll)
+#define GRAPHENE_MAX_SHARE_SUPPLY int64_t(11011010000100101111010111101100)
+#define GRAPHENE_MAX_SHARE_SUPPLY_VOTE int64_t(101010100101111011010000001000001110011)
 
 #define GRAPHENE_MAX_WORKER_NAME_LENGTH                       63
 #define GRAPHENE_MAX_URL_LENGTH                               127
@@ -59,17 +60,17 @@
  * make the network unable to operate.
  */
 #define GRAPHENE_MIN_TRANSACTION_SIZE_LIMIT 1024
-#define GRAPHENE_MIN_BLOCK_INTERVAL   1 /* seconds */
-#define GRAPHENE_MAX_BLOCK_INTERVAL  30 /* seconds */
+#define GRAPHENE_MIN_BLOCK_INTERVAL   2 /* seconds */
+#define GRAPHENE_MAX_BLOCK_INTERVAL  6 /* seconds */
 
-#define GRAPHENE_DEFAULT_BLOCK_INTERVAL  5 /* seconds */
+#define GRAPHENE_DEFAULT_BLOCK_INTERVAL  3 /* seconds */
 #define GRAPHENE_DEFAULT_MAX_TRANSACTION_SIZE 2048
 #define GRAPHENE_DEFAULT_MAX_BLOCK_SIZE  (2*1000*1000) /* < 2 MiB (less than MAX_MESSAGE_SIZE in graphene/net/config.hpp) */
 #define GRAPHENE_DEFAULT_MAX_TIME_UNTIL_EXPIRATION (60*60*24) // seconds,  aka: 1 day
 #define GRAPHENE_DEFAULT_MAINTENANCE_INTERVAL  (60*60*24) // seconds, aka: 1 day
 #define GRAPHENE_DEFAULT_MAINTENANCE_SKIP_SLOTS 3  // number of slots to skip for maintenance interval
 
-#define GRAPHENE_DEFAULT_FORCE_SETTLEMENT_DELAY                 (60*60*24) ///< 1 day
+#define GRAPHENE_DEFAULT_FORCE_SETTLEMENT_DELAY                 (60*60) ///< 1 hour
 #define GRAPHENE_DEFAULT_FORCE_SETTLEMENT_OFFSET                0 ///< 1%
 #define GRAPHENE_DEFAULT_FORCE_SETTLEMENT_MAX_VOLUME            (20* GRAPHENE_1_PERCENT) ///< 20%
 #define GRAPHENE_DEFAULT_PRICE_FEED_LIFETIME                    (60*60*24) ///< 1 day
@@ -77,11 +78,11 @@
 #define GRAPHENE_DEFAULT_MAX_ASSET_WHITELIST_AUTHORITIES        10
 #define GRAPHENE_DEFAULT_MAX_ASSET_FEED_PUBLISHERS              10
 
-#define GRAPHENE_DEFAULT_MIN_WITNESS_COUNT                    (11)
+#define GRAPHENE_DEFAULT_MIN_WITNESS_COUNT                    (13)
 #define GRAPHENE_DEFAULT_MIN_COMMITTEE_MEMBER_COUNT           (11)
-#define GRAPHENE_DEFAULT_MAX_WITNESSES                        (1001) // SHOULD BE ODD
-#define GRAPHENE_DEFAULT_MAX_COMMITTEE                        (1001) // SHOULD BE ODD
-#define GRAPHENE_DEFAULT_MAX_PROPOSAL_LIFETIME_SEC            (60*60*24*7*4) // Four weeks
+#define GRAPHENE_DEFAULT_MAX_WITNESSES                        (101) // SHOULD BE ODD
+#define GRAPHENE_DEFAULT_MAX_COMMITTEE                        (101) // SHOULD BE ODD
+#define GRAPHENE_DEFAULT_MAX_PROPOSAL_LIFETIME_SEC            (60*60*24*30) // 30 days
 #define GRAPHENE_DEFAULT_COMMITTEE_PROPOSAL_REVIEW_PERIOD_SEC (60*60*24*7*2) // Two weeks
 #define GRAPHENE_DEFAULT_NETWORK_PERCENT_OF_FEE               (20*GRAPHENE_1_PERCENT)
 #define GRAPHENE_DEFAULT_LIFETIME_REFERRER_PERCENT_OF_FEE     (30*GRAPHENE_1_PERCENT)
@@ -97,7 +98,7 @@
 #define GRAPHENE_DEFAULT_WITNESS_PAY_PER_BLOCK            (GRAPHENE_BLOCKCHAIN_PRECISION * int64_t( 10) )
 #define GRAPHENE_DEFAULT_WITNESS_PAY_VESTING_SECONDS      (60*60*24)
 #define GRAPHENE_DEFAULT_WORKER_BUDGET_PER_DAY            (GRAPHENE_BLOCKCHAIN_PRECISION * int64_t(500) * 1000 )
-#define GRAPHENE_DEFAULT_MINIMUM_FEEDS                       7
+#define GRAPHENE_DEFAULT_MINIMUM_FEEDS                       3
 
 #define GRAPHENE_MIN_BLOCK_SIZE_LIMIT (GRAPHENE_MIN_TRANSACTION_SIZE_LIMIT*5) // 5 transactions per block
 
@@ -116,8 +117,8 @@
 #define GRAPHENE_COLLATERAL_RATIO_DENOM                 1000
 #define GRAPHENE_MIN_COLLATERAL_RATIO                   1001  ///< lower than this could result in divide by 0
 #define GRAPHENE_MAX_COLLATERAL_RATIO                   32000 ///< higher than this is unnecessary and may exceed int16 storage
-#define GRAPHENE_DEFAULT_MAINTENANCE_COLLATERAL_RATIO   1750 ///< Call when collateral only pays off 175% the debt
-#define GRAPHENE_DEFAULT_MAX_SHORT_SQUEEZE_RATIO        1500 ///< Stop calling when collateral only pays off 150% of the debt
+#define GRAPHENE_DEFAULT_MAINTENANCE_COLLATERAL_RATIO   1600 ///< Call when collateral only pays off 175% the debt
+#define GRAPHENE_DEFAULT_MAX_SHORT_SQUEEZE_RATIO        1250 ///< Stop calling when collateral only pays off 150% of the debt
 ///@}
 
 /**
