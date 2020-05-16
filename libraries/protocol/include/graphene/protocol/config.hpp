@@ -60,10 +60,10 @@
  * make the network unable to operate.
  */
 #define GRAPHENE_MIN_TRANSACTION_SIZE_LIMIT 1024
-#define GRAPHENE_MIN_BLOCK_INTERVAL   2 /* seconds */
-#define GRAPHENE_MAX_BLOCK_INTERVAL  6 /* seconds */
+#define GRAPHENE_MIN_BLOCK_INTERVAL   1 /* seconds */
+#define GRAPHENE_MAX_BLOCK_INTERVAL  30 /* seconds */
 
-#define GRAPHENE_DEFAULT_BLOCK_INTERVAL  3 /* seconds */
+#define GRAPHENE_DEFAULT_BLOCK_INTERVAL  5 /* seconds */
 #define GRAPHENE_DEFAULT_MAX_TRANSACTION_SIZE 2048
 #define GRAPHENE_DEFAULT_MAX_BLOCK_SIZE  (2*1000*1000) /* < 2 MiB (less than MAX_MESSAGE_SIZE in graphene/net/config.hpp) */
 #define GRAPHENE_DEFAULT_MAX_TIME_UNTIL_EXPIRATION (60*60*24) // seconds,  aka: 1 day
