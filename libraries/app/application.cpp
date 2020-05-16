@@ -88,7 +88,7 @@ namespace detail {
             initial_state.initial_parameters.block_interval);
       for( uint64_t i = 0; i < initial_state.initial_active_witnesses; ++i )
       {
-         auto name = "onest"+fc::to_string(i);
+         auto name = "init"+fc::to_string(i);
          initial_state.initial_accounts.emplace_back(name,
                                                      nathan_key.get_public_key(),
                                                      nathan_key.get_public_key(),
