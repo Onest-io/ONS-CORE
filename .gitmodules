@@ -1,9 +1,9 @@
 # important
 [submodule "docs"]
     path = docs
-    url = https://github.com/Onest-io/onest-core-wiki.git
-    branch = master
+    url = https://github.com/Onest-io/onest-core-wiki/0971a791db2f4b38d313b97434381a9ac1fcc63a
+    ignore = dirty
 [submodule "libraries/fc"]
     path = libraries/fc
     url = https://github.com/Onest-io/onest-fc.git
-    branch = master
+    ignore = dirty
