@@ -318,7 +318,7 @@
     }
   ],
   "initial_vesting_balances": [],
-  "initial_active_witnesses": 13,
+  "initial_active_witnesses": 9,
   "initial_witness_candidates": [{
       "owner_name": "onest0",
       "block_signing_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
