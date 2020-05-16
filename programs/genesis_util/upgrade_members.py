@@ -12,7 +12,7 @@ def dump_json(obj, out, pretty):
         json.dump(obj, out, separators=(",", ":"), sort_keys=True)
     return
 
-re_init = re.compile(r"^onest[0-9]+$")
+re_init = re.compile(r"^init[0-9]+$")
 
 def load_names(infile):
     names = set()
