@@ -2,8 +2,24 @@
 [submodule "docs"]
     path = docs
     url = https://github.com/Onest-io/onest-core-wiki.git
-    update = merge
+    branch = master
 [submodule "libraries/fc"]
     path = libraries/fc
     url = https://github.com/Onest-io/onest-fc.git
-    update = merge
+    branch = master
+[submodule "libraries/fc/vendor/diff-match-patch-cpp-stl"]
+    path = libraries/fc/vendor/diff-match-patch-cpp-stl
+    url = https://github.com/onest-io/diff-match-patch-cpp-stl
+    branch = master
+[submodule "libraries/fc/vendor/secp256k1-zkp"]
+    path = libraries/fc/vendor/secp256k1-zkp
+    url = https://github.com/onest-io/secp256k1-zkp
+    branch = master
+[submodule "libraries/fc/vendor/websocketpp"]
+    path = libraries/fc/vendor/websocketpp
+    url = https://github.com/onest-io/websocketpp
+    branch = master
+[submodule "libraries/fc/vendor/editline"]
+    path = libraries/fc/vendor/editline
+    url = https://github.com/onest-io/editline
+    branch = master
