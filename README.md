@@ -27,7 +27,7 @@ We recommend building on Ubuntu 16.04 LTS (64-bit)
     git clone https://github.com/Onest-io/ONS-CORE.git
     cd ONS-CORE
     git checkout master # may substitute "master" with current release tag
-    git submodule update --init --recursive
+    git submodule update --init --recursive --remote
     cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo .
     make
 
@@ -37,9 +37,9 @@ We recommend building on Ubuntu 16.04 LTS (64-bit)
     git checkout master
     git remote set-head origin --auto
     git pull
-    git submodule update --init --recursive # this command may fail
+    git submodule update --init --recursive --remote # this command may fail
     git submodule sync --recursive
-    git submodule update --init --recursive
+    git submodule update --init --recursive --remote
 
 **NOTE:** Versions of [Boost](http://www.boost.org/) 1.58 through 1.69 are supported. Newer versions may work, but
 have not been tested. If your system came pre-installed with a version of Boost that you do not wish to use, you may
