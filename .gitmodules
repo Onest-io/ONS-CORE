@@ -1,7 +1,7 @@
 # important
 [submodule "docs"]
     path = docs
-    url = https://github.com/Onest-io/onest-core-wiki/tree/master
+    url = https://github.com/Onest-io/onest-core-wiki.git
     ignore = dirty
 [submodule "libraries/fc"]
     path = libraries/fc
