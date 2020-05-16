@@ -2,7 +2,7 @@
 [submodule "docs"]
     path = docs
     url = https://github.com/Onest-io/onest-core-wiki.git
-    ignore = dirty
+    branch = .
 [submodule "libraries/fc"]
     path = libraries/fc
     url = https://github.com/Onest-io/onest-fc.git
