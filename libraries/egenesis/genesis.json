@@ -245,57 +245,57 @@
     }
   },
   "initial_accounts": [{
-      "name": "onest0",
+      "name": "init0",
       "owner_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "active_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "is_lifetime_member": true
     },{
-      "name": "onest1",
+      "name": "init1",
       "owner_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "active_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "is_lifetime_member": true
     },{
-      "name": "onest2",
+      "name": "init2",
       "owner_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "active_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "is_lifetime_member": true
     },{
-      "name": "onest3",
+      "name": "init3",
       "owner_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "active_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "is_lifetime_member": true
     },{
-      "name": "onest4",
+      "name": "init4",
       "owner_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "active_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "is_lifetime_member": true
     },{
-      "name": "onest5",
+      "name": "init5",
       "owner_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "active_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "is_lifetime_member": true
     },{
-      "name": "onest6",
+      "name": "init6",
       "owner_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "active_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "is_lifetime_member": true
     },{
-      "name": "onest7",
+      "name": "init7",
       "owner_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "active_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "is_lifetime_member": true
     },{
-      "name": "onest8",
+      "name": "init8",
       "owner_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "active_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "is_lifetime_member": true
     },{
-      "name": "onest9",
+      "name": "init9",
       "owner_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "active_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "is_lifetime_member": true
     },{
-      "name": "onest10",
+      "name": "init10",
       "owner_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "active_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "is_lifetime_member": true
@@ -320,62 +320,62 @@
   "initial_vesting_balances": [],
   "initial_active_witnesses": 9,
   "initial_witness_candidates": [{
-      "owner_name": "onest0",
+      "owner_name": "init0",
       "block_signing_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
     },{
-      "owner_name": "onest1",
+      "owner_name": "init1",
       "block_signing_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
     },{
-      "owner_name": "onest2",
+      "owner_name": "init2",
       "block_signing_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
     },{
-      "owner_name": "onest3",
+      "owner_name": "init3",
       "block_signing_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
     },{
-      "owner_name": "onest4",
+      "owner_name": "init4",
       "block_signing_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
     },{
-      "owner_name": "onest5",
+      "owner_name": "init5",
       "block_signing_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
     },{
-      "owner_name": "onest6",
+      "owner_name": "init6",
       "block_signing_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
     },{
-      "owner_name": "onest7",
+      "owner_name": "init7",
       "block_signing_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
     },{
-      "owner_name": "onest8",
+      "owner_name": "init8",
       "block_signing_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
     },{
-      "owner_name": "onest9",
+      "owner_name": "init9",
       "block_signing_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
     },{
-      "owner_name": "onest10",
+      "owner_name": "init10",
       "block_signing_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
     }
   ],
   "initial_committee_candidates": [{
-      "owner_name": "onest0"
+      "owner_name": "init0"
     },{
-      "owner_name": "onest1"
+      "owner_name": "init1"
     },{
-      "owner_name": "onest2"
+      "owner_name": "init2"
     },{
-      "owner_name": "onest3"
+      "owner_name": "init3"
     },{
-      "owner_name": "onest4"
+      "owner_name": "init4"
     },{
-      "owner_name": "onest5"
+      "owner_name": "init5"
     },{
-      "owner_name": "onest6"
+      "owner_name": "init6"
     },{
-      "owner_name": "onest7"
+      "owner_name": "init7"
     },{
-      "owner_name": "onest8"
+      "owner_name": "init8"
     },{
-      "owner_name": "onest9"
+      "owner_name": "init9"
     },{
-      "owner_name": "onest10"
+      "owner_name": "init10"
     }
   ],
   "initial_worker_candidates": [],
