@@ -7,8 +7,8 @@
     path = libraries/fc
     url = https://github.com/Onest-io/onest-fc.git
     branch = master
-[submodule "libraries/fc/vendor/diff-match-patch-cpp-stl"]
-    path = libraries/fc/vendor/diff-match-patch-cpp-stl
+[submodule "libraries/fc2/vendor/diff-match-patch-cpp-stl"]
+    path = libraries/fc2/vendor/diff-match-patch-cpp-stl
     url = https://github.com/onest-io/diff-match-patch-cpp-stl
     branch = master
 [submodule "libraries/fc/vendor/secp256k1-zkp"]
