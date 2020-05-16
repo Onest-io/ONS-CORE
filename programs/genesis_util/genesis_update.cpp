@@ -154,7 +154,7 @@ int main( int argc, char** argv )
       {
          genesis_state_type::initial_witness_type& wit = genesis.initial_witness_candidates[ i ];
          genesis_state_type::initial_account_type& wit_acct = genesis.initial_accounts[ name2index[ wit.owner_name ] ];
-         if( wit.owner_name.substr(0, 4) != "init" )
+         if( wit.owner_name.substr(0, 4) != "onest" )
          {
             std::cerr << "need " << genesis.initial_active_witnesses << " init accounts as first entries in initial_active_witnesses\n";
             return 1;
