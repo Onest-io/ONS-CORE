@@ -2,9 +2,8 @@
 [submodule "docs"]
     path = docs
     url = https://github.com/Onest-io/onest-core-wiki.git
-    branch = master
     update = merge
 [submodule "libraries/fc"]
     path = libraries/fc
     url = https://github.com/Onest-io/onest-fc.git
-    branch = master
+    update = merge
