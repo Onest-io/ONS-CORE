@@ -220,8 +220,8 @@
     "maximum_proposal_lifetime": 2419200,
     "maximum_asset_whitelist_authorities": 10,
     "maximum_asset_feed_publishers": 10,
-    "maximum_witness_count": 101,
-    "maximum_committee_count": 101,
+    "maximum_witness_count": 1001,
+    "maximum_committee_count": 1001,
     "maximum_authority_membership": 10,
     "reserve_percent_of_fee": 2000,
     "network_percent_of_fee": 2000,
@@ -310,11 +310,11 @@
   "initial_balances": [{
       "owner": "ONSFAbAx7yuxt725qSZvfwWqkdCwp9ZnUama",
       "asset_symbol": "ONS",
-      "amount": "365867569200000"
+      "amount": "365867569200"
     }, {
       "owner": "ONSFAbAx7yuxt725qSZvfwWqkdCwp9ZnUama",
       "asset_symbol": "VOTE",
-      "amount": "365867569267000"
+      "amount": "365867569267"
     }
   ],
   "initial_vesting_balances": [],
@@ -379,7 +379,6 @@
     }
   ],
   "initial_worker_candidates": [],
-  "initial_chain_id": "f0aa8b5cb5524829da1f7946aded03c42e325807957d20c7867c2c9cb659a9bf",
   "immutable_parameters": {
     "min_committee_member_count": 9,
     "min_witness_count": 9,
