@@ -44,7 +44,7 @@ RUN \
 	  sed -i "s=: .*/.git/=: $rel/=" "$f"; \
 	done && \
       git submodule sync --recursive ) && \
-    git submodule update --init --recursive && \
+    git submodule update --init --recursive --remote && \
     cmake \
         -DCMAKE_BUILD_TYPE=Release \
 	-DGRAPHENE_DISABLE_UNITY_BUILD=ON \
