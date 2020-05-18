@@ -10,7 +10,7 @@ Onest Blockchain Core Node
 * [FAQ](#faq)
 * [License](#license)
 
-Getting started with installation of onest blockchain core node (to upgrade an existing node, please refer to upgrade proceedure * [Upgrade](#upgrade))
+Getting started with installation of onest blockchain core node
 ---------------
 Build instructions and additional documentation are available in the
 [wiki](https://github.com/Onest-io/ONS-CORE/wiki).
