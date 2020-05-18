@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/Onest-io/ONS-CORE.svg?branch=master)](https://travis-ci.org/Onest-io/ONS-CORE)
 
-Onest-io Core
+Onest Blockchain Core Node
 ==============
 
 * [Getting Started](#getting-started)
@@ -10,7 +10,7 @@ Onest-io Core
 * [FAQ](#faq)
 * [License](#license)
 
-Getting Started with installation (to upgrade an existing node, please refer to upgrade proceedure)
+Getting started with installation of onest blockchain core node (to upgrade an existing node, please refer to upgrade proceedure * [Upgrade](#upgrade))
 ---------------
 Build instructions and additional documentation are available in the
 [wiki](https://github.com/Onest-io/ONS-CORE/wiki).
@@ -50,11 +50,15 @@ Example: ``cmake -DBOOST_ROOT=/path/to/boost .``
     cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo .
     make
 
-**3) After Building:**, the `witness_node` can be launched with the below command while, make sure to `cd ~/ONS-CORE` before you launch this command, if you want to keep the node in background you can run it after entering `screen`, you can exit the screen press and hold the `ctrl` key and then press once `A` then `D` once again on your keyboard so then you can return back to screen with command `screen -r`:
+**3) After Building:** 
+
+Note: you have to run`witness_node` to start the node, it can be launched with the below command while, making sure to `cd ~/ONS-CORE` before launching this below command, if you want to keep the node running in background you might need to run it after entering `screen` session then run it, to exit the screen session and keep the node running, hold on the `ctrl` key and then press once `A` then `D` once again while holding `ctrl` key on your keyboard, to get back to session use the command `screen -r`.
+
+The command to run the node is:
 
     ./programs/witness_node/witness_node
 
-The node will automatically create a data directory including a config file. It may take several hours to fully synchronize
+Note: The node will automatically create a data directory including a config file. It may take several hours to fully synchronize
 the blockchain. After syncing, you can exit the node using Ctrl+C and setup the command-line wallet by editing
 `witness_node_data_dir/config.ini` as follows:
 
@@ -88,6 +92,7 @@ If you send private keys over this connection, `rpc-endpoint` should be bound to
 Use `help` to see all available wallet commands. Source definition and listing of all commands is available
 [here](https://github.com/Onest-io/ONS-CORE/blob/master/libraries/wallet/include/graphene/wallet/wallet.hpp).
 
+Upgrade
 
 **Upgrade node procedure:** (In case you don't want to resync entire blockchain again while you have an existing running node):
 
