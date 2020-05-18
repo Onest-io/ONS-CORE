@@ -8,8 +8,7 @@ cache:
 git:
   depth: 1
   submodules: false
-  before_install:
-  - git submodule update --init --recursive --remote
+  before_jobs: git submodule update --init --recursive --remote
 
 dist: xenial
 
