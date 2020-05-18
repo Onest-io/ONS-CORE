@@ -6,3 +6,4 @@
     path = libraries/fc
     url = https://github.com/onest-io/onest-fc.git
     ignore = dirty
+    branch = master
