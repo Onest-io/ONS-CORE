@@ -10,36 +10,16 @@ Onest-io Core
 * [FAQ](#faq)
 * [License](#license)
 
-Getting Started
+Getting Started with installation (to upgrade an existing node, please refer to upgrade proceedure)
 ---------------
 Build instructions and additional documentation are available in the
 [wiki](https://github.com/Onest-io/ONS-CORE/wiki).
 
-We recommend building on Ubuntu 16.04 LTS (64-bit) 
+| Default | High-end | Minimal  | Elastic-Search 
+| --- | --- | --- | ---
+| 200G HDD, 16G RAM | 1TB SSD, 64G RAM * | 100G HDD, 4G RAM | 500G SSD, 32G RAM
 
-**Build Dependencies:**
-
-    sudo apt-get update
-    sudo apt-get install autoconf cmake make automake libtool git libboost-all-dev libssl-dev g++ libcurl4-openssl-dev
-
-**Build Script:**
-
-    git clone https://github.com/Onest-io/ONS-CORE.git
-    cd ONS-CORE
-    git checkout master # may substitute "master" with current release tag
-    git submodule update --init --recursive --remote
-    cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo .
-    make
-
-**Upgrade Script:** (prepend to the Build Script above if you built a prior release):
-
-    git remote set-url origin https://github.com/Onest-io/ONS-CORE.git
-    git checkout master
-    git remote set-head origin --auto
-    git pull
-    git submodule update --init --recursive --remote # this command may fail
-    git submodule sync --recursive
-    git submodule update --init --recursive --remote
+\* For this setup, allocate at least 500GB of SSD as swap.
 
 **NOTE:** Versions of [Boost](http://www.boost.org/) 1.58 through 1.69 are supported. Newer versions may work, but
 have not been tested. If your system came pre-installed with a version of Boost that you do not wish to use, you may
@@ -51,9 +31,26 @@ Example: ``cmake -DBOOST_ROOT=/path/to/boost .``
 
 **NOTE:** Onest now supports Ubuntu 18.04 LTS
 
+**NOTE:** Onest recommend building on Ubuntu 16.04 LTS (64-bit) 
+
 **NOTE:** Onest now supports OpenSSL 1.1.0
 
-**After Building**, the `witness_node` can be launched with:
+
+**1) step Build Dependencies:**
+
+    sudo apt-get update
+    sudo apt-get install autoconf cmake make automake libtool git libboost-all-dev libssl-dev g++ libcurl4-openssl-dev
+
+**2) Build Script:**
+
+    git clone https://github.com/Onest-io/ONS-CORE.git
+    cd ONS-CORE
+    git checkout master # may substitute "master" with current release tag
+    git submodule update --init --recursive --remote
+    cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo .
+    make
+
+**3) After Building is done**, the `witness_node` can be launched with:
 
     ./programs/witness_node/witness_node
 
@@ -65,12 +62,6 @@ the blockchain. After syncing, you can exit the node using Ctrl+C and setup the 
 
 **IMPORTANT:** By default the witness node will start in reduced memory mode by using some of the commands detailed in [Memory reduction for nodes](https://github.com/ONS-CORE/wiki/Memory-reduction-for-nodes).
 In order to run a full node with all the account history you need to remove `partial-operations` and `max-ops-per-account` from your config file. Please note that currently(2018-10-17) a full node will need more than 160GB of RAM to operate and required memory is growing fast. Consider the following table as minimal requirements before running a node:
-
-| Default | Full | Minimal  | ElasticSearch 
-| --- | --- | --- | ---
-| 100G HDD, 16G RAM | 640G SSD, 64G RAM * | 80G HDD, 4G RAM | 500G SSD, 32G RAM
-
-\* For this setup, allocate at least 500GB of SSD as swap.
 
 After starting the witness node again, in a separate terminal you can run:
 
@@ -96,6 +87,19 @@ If you send private keys over this connection, `rpc-endpoint` should be bound to
 
 Use `help` to see all available wallet commands. Source definition and listing of all commands is available
 [here](https://github.com/Onest-io/ONS-CORE/blob/master/libraries/wallet/include/graphene/wallet/wallet.hpp).
+
+
+**Upgrade node procedure:** (In case you don't want to resync entire blockchain again while you have an existing running node):
+
+Make sure to kill the existing node process before you start the upgrade.
+
+    git remote set-url origin https://github.com/Onest-io/ONS-CORE.git
+    git checkout master
+    git remote set-head origin --auto
+    git pull
+    git submodule update --init --recursive --remote # this command may fail
+    git submodule sync --recursive
+    git submodule update --init --recursive --remote
 
 Support
 -------
