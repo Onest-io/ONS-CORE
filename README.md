@@ -36,12 +36,12 @@ Example: ``cmake -DBOOST_ROOT=/path/to/boost .``
 **NOTE:** Onest now supports OpenSSL 1.1.0
 
 
-**1) step Build Dependencies:**
+**1) Build Dependencies:**
 
     sudo apt-get update
     sudo apt-get install autoconf cmake make automake libtool git libboost-all-dev libssl-dev g++ libcurl4-openssl-dev
 
-**2) Build Script:**
+**2) Build From Source Code:**
 
     git clone https://github.com/Onest-io/ONS-CORE.git
     cd ONS-CORE
@@ -50,7 +50,7 @@ Example: ``cmake -DBOOST_ROOT=/path/to/boost .``
     cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo .
     make
 
-**3) After Building is done**, the `witness_node` can be launched with:
+**3) After Building:**, the `witness_node` can be launched with the below command while, make sure to `cd ~/ONS-CORE` before you launch this command, if you want to keep the node in background you can run it after entering `screen`, you can exit the screen press and hold the `ctrl` key and then press once `A` then `D` once again on your keyboard so then you can return back to screen with command `screen -r`:
 
     ./programs/witness_node/witness_node
 
