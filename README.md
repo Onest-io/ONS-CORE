@@ -15,7 +15,7 @@ Getting started with installing onest blockchain core node:
 Build instructions and additional documentation are available in the
 [wiki](https://github.com/Onest-io/ONS-CORE/wiki).
 
-| Default | High-end | Minimal  | Elastic-Search 
+| Default | High-End | Minimal  | Elastic-Search 
 | --- | --- | --- | ---
 | 200G HDD, 16G RAM | 1TB SSD, 64G RAM * | 100G HDD, 4G RAM | 500G SSD, 32G RAM
 
@@ -91,6 +91,7 @@ If you send private keys over this connection, `rpc-endpoint` should be bound to
 
 Use `help` to see all available wallet commands. Source definition and listing of all commands is available
 [here](https://github.com/Onest-io/ONS-CORE/blob/master/libraries/wallet/include/graphene/wallet/wallet.hpp).
+
 
 Upgrading an existing onest blockchain core node:
 ---------------
