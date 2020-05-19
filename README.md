@@ -93,7 +93,7 @@ Use `help` to see all available wallet commands. Source definition and listing o
 [here](https://github.com/Onest-io/ONS-CORE/blob/master/libraries/wallet/include/graphene/wallet/wallet.hpp).
 
 
-Upgrading an existing onest blockchain core node:
+Upgrade an existing onest blockchain core node:
 ---------------
 In case you don't want to resync the entire blockchain again by performing the new installation procedure mentioned above, you can upgrade the node using the following commands while, making sure to `cd ~/ONS-CORE` directory before launching these commands, make sure to kill the existing node `witness_node` process before you start the upgrade and remember to start `witness_node` once you are done:
 
