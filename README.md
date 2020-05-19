@@ -10,7 +10,7 @@ Onest Blockchain Core Node
 * [FAQ](#faq)
 * [License](#license)
 
-Getting started with installing the onest blockchain core node:
+Getting started with installing onest blockchain core node:
 ---------------
 Build instructions and additional documentation are available in the
 [wiki](https://github.com/Onest-io/ONS-CORE/wiki).
