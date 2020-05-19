@@ -10,7 +10,7 @@ Onest Blockchain Core Node
 * [FAQ](#faq)
 * [License](#license)
 
-Getting started with installing the onest blockchain core node
+Getting started with installing the onest blockchain core node:
 ---------------
 Build instructions and additional documentation are available in the
 [wiki](https://github.com/Onest-io/ONS-CORE/wiki).
@@ -92,11 +92,9 @@ If you send private keys over this connection, `rpc-endpoint` should be bound to
 Use `help` to see all available wallet commands. Source definition and listing of all commands is available
 [here](https://github.com/Onest-io/ONS-CORE/blob/master/libraries/wallet/include/graphene/wallet/wallet.hpp).
 
-Upgrade
-
-**Upgrade node procedure:** (In case you don't want to resync entire blockchain again while you have an existing running node):
-
-Make sure to kill the existing node process before you start the upgrade.
+Upgrading an existing onest blockchain core node:
+---------------
+In case you don't want to resync the entire blockchain again by performing the new installation procedure mentioned above, you can upgrade the node using the following commands while, making sure to `cd ~/ONS-CORE` directory before launching these commands, make sure to kill the existing node `witness_node` process before you start the upgrade and remember to start `witness_node` once you are done:
 
     git remote set-url origin https://github.com/Onest-io/ONS-CORE.git
     git checkout master
@@ -105,6 +103,7 @@ Make sure to kill the existing node process before you start the upgrade.
     git submodule update --init --recursive --remote # this command may fail
     git submodule sync --recursive
     git submodule update --init --recursive --remote
+    
 
 Support
 -------
