@@ -55,7 +55,7 @@ Example:
     sudo apt-get install autoconf cmake make automake libtool git libboost-all-dev libssl-dev gcc-7 g++-7 libcurl4-openssl-dev
 
 
-**2) Build From github Source Code:**
+**2) Build From GitHub Source Code:**
 
 
     git clone https://github.com/Onest-io/ONS-CORE.git
@@ -66,7 +66,7 @@ Example:
     make
 
 
-**3) After Building:** 
+**3) After Building is Done:** 
 
 Note: you have to run`witness_node` to start the node, it can be launched with the below command while, making sure to `cd ~/ONS-CORE` before launching this below command, if you want to keep the node running in background you might need to run it after entering `screen` session then run it, to exit the screen session and keep the node running, hold on the `ctrl` key and then press once `A` then `D` once again while holding `ctrl` key on your keyboard, to get back to session use the command `screen -r`.
 
