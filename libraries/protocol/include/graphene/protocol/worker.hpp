@@ -77,7 +77,7 @@ namespace graphene { namespace protocol {
     */
    struct worker_create_operation : public base_operation
    {
-      struct fee_parameters_type { uint64_t fee = 5000*GRAPHENE_BLOCKCHAIN_PRECISION; };
+      struct fee_parameters_type { uint64_t fee = 500*GRAPHENE_BLOCKCHAIN_PRECISION; };
 
       asset                fee;
       account_id_type      owner;
