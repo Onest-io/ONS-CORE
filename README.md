@@ -38,7 +38,7 @@ Example:
 
 **NOTE:** Onest now supports OpenSSL 1.1.0 OS package.
 
-**NOTE:** Make sure your default gcc and g++ compilers is version 7 ``gcc -v`` & ``g++ -v``, in case it's not version 7, change your default gcc version by following proceedure:
+**NOTE:** Make sure your default gcc and g++ compilers are version 7 ``gcc -v`` & ``g++ -v``, in case it's not version 7, change your default gcc and g++ versions using the following procedure:
 
 
     sudo apt-get install gcc-7 g++-7
@@ -48,14 +48,14 @@ Example:
     sudo update-alternatives --config g++ # follow steps to set default to version 7
 
 
-**1) Build OS Dependencies:**
+**1) Installing OS Dependencies:**
 
 
     sudo apt-get update
     sudo apt-get install autoconf cmake make automake libtool git libboost-all-dev libssl-dev gcc-7 g++-7 libcurl4-openssl-dev
 
 
-**2) Build From GitHub Source Code:**
+**2) Compiling and Building with Official Onest Blockchain Source Code:**
 
 
     git clone https://github.com/Onest-io/ONS-CORE.git
@@ -66,11 +66,11 @@ Example:
     make
 
 
-**3) After Building is Done:** 
+**3) Running Onest Blockchain Node:** 
 
 Note: you have to run`witness_node` to start the node, it can be launched with the below command while, making sure to `cd ~/ONS-CORE` before launching this below command, if you want to keep the node running in background you might need to run it after entering `screen` session then run it, to exit the screen session and keep the node running, hold on the `ctrl` key and then press once `A` then `D` once again while holding `ctrl` key on your keyboard, to get back to session use the command `screen -r`.
 
-The command to run the node is:
+Use the following command to run Onest Blockchain node:
 
 
     ./programs/witness_node/witness_node
