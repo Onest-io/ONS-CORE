@@ -45,6 +45,11 @@ const asset_dynamic_data_object& database::get_core_dynamic_data() const
    return *_p_core_dynamic_data_obj;
 }
 
+const asset_dynamic_data_object& database::get_core_dynamic_data_vote() const
+{
+   return *_p_core_dynamic_data_obj_vote;
+}
+
 const global_property_object& database::get_global_properties()const
 {
    return *_p_global_prop_obj;
