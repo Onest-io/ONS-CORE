@@ -388,11 +388,11 @@ void database::init_genesis(const genesis_state_type& genesis_state)
    
    // Create vote
    
-//   while( true )
-//   {
-//      uint64_t id = get_index<asset_object>().get_next_id().instance();
-//      if( id >= genesis_state.immutable_parameters.num_special_assets )
-//         break;
+   while( true )
+   {
+      uint64_t id = get_index<asset_object>().get_next_id().instance();
+      if( id >= genesis_state.immutable_parameters.num_special_assets )
+         break;
       const asset_dynamic_data_object& dyn_asset =
          create<asset_dynamic_data_object>([](asset_dynamic_data_object& a) {
             a.current_supply = GRAPHENE_MAX_SHARE_SUPPLY_VOTE;
@@ -412,7 +412,7 @@ void database::init_genesis(const genesis_state_type& genesis_state)
       });
       FC_ASSERT( asset_obj.get_id() == asset_id_type(id) );
       remove( asset_obj );
-//   }
+   }
    
    // Create more special assets
    while( true )
