@@ -79,6 +79,9 @@ void account_statistics_object::process_fees(const account_object& a, database& 
          d.modify( d.get_core_dynamic_data(), [network_cut](asset_dynamic_data_object& addo) {
             addo.accumulated_fees += network_cut;
          });
+         d.modify( d.get_core_dynamic_data_vote(), [network_cut](asset_dynamic_data_object& addo) {
+            addo.accumulated_fees += network_cut;
+         });
 
          // Potential optimization: Skip some of this math and object lookups by special casing on the account type.
          // For example, if the account is a lifetime member, we can skip all this and just deposit the referral to
