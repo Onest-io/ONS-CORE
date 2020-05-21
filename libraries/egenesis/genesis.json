@@ -245,6 +245,11 @@
     }
   },
   "initial_accounts": [{
+      "name": "bitshares-vision",
+      "owner_key": "ONS7Rfr9rePnkxdxNZBS717ZxZVAGz6XQgZnZDuVTfhvoWGAR67jY",
+      "active_key": "ONS7Rfr9rePnkxdxNZBS717ZxZVAGz6XQgZnZDuVTfhvoWGAR67jY",
+      "is_lifetime_member": true
+    },{
       "name": "init0",
       "owner_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "active_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
@@ -317,7 +322,6 @@
     }
   ],
   "initial_vesting_balances": [],
-  "initial_assets":[{"accumulated_fees":0,"collateral_records":[],"description":"Voting utility","is_bitasset":false,"issuer_name":"null-account","max_supply":"365867569267000","precision":3,"symbol":"VOTE"}],
   "initial_active_witnesses": 11,
   "initial_witness_candidates": [{
       "owner_name": "init0",
@@ -383,6 +387,6 @@
     "min_committee_member_count": 11,
     "min_witness_count": 11,
     "num_special_accounts": 0,
-    "num_special_assets": 0
+    "num_special_assets": 1
   }
 }
