@@ -409,6 +409,7 @@ void database::initialize_budget_record( fc::time_point_sec now, budget_record& 
 
    rec.from_initial_reserve = core.reserved(*this);
    rec.from_accumulated_fees = core_dd.accumulated_fees;
+   rec.from_accumulated_fees = core_dd_vote.accumulated_fees;
    rec.from_unused_witness_budget = dpo.witness_budget;
 
    if(    (dpo.last_budget_time == fc::time_point_sec())
@@ -428,6 +429,7 @@ void database::initialize_budget_record( fc::time_point_sec now, budget_record& 
    // are available for the budget at this point, but not included
    // in core.reserved().
    share_type reserve = rec.from_initial_reserve + core_dd.accumulated_fees;
+   share_type reserve = rec.from_initial_reserve + core_dd_vote.accumulated_fees;
    // Similarly, we consider leftover witness_budget to be burned
    // at the BEGINNING of the maintenance interval.
    reserve += dpo.witness_budget;
@@ -619,7 +621,7 @@ void split_fba_balance(
       return;
 
    const asset_dynamic_data_object& core_dd = db.get_core_dynamic_data();
-   const asset_dynamic_data_object& core_dd = db.get_core_dynamic_data_vote();
+   const asset_dynamic_data_object& core_dd_vote = db.get_core_dynamic_data_vote();
 
    if( !fba.is_configured(db) )
    {
@@ -627,6 +629,13 @@ void split_fba_balance(
       db.modify( core_dd, [&]( asset_dynamic_data_object& _core_dd )
       {
          _core_dd.current_supply -= fba.accumulated_fba_fees;
+      } );
+   if( !fba.is_configured(db) )
+   {
+      ilog( "${n} core given to network at block ${b} due to non-configured FBA", ("n", fba.accumulated_fba_fees)("b", db.head_block_time()) );
+      db.modify( core_dd_vote, [&]( asset_dynamic_data_object& _core_dd_vote )
+      {
+         _core_dd_vote.current_supply -= fba.accumulated_fba_fees;
       } );
       db.modify( fba, [&]( fba_accumulator_object& _fba )
       {
@@ -657,6 +666,12 @@ void split_fba_balance(
       db.modify( core_dd, [&]( asset_dynamic_data_object& _core_dd )
       {
          _core_dd.current_supply -= network_amount;
+      } );
+   if( network_amount != 0 )
+   {
+      db.modify( core_dd, [&]( asset_dynamic_data_object& _core_dd_vote )
+      {
+         _core_dd_vote.current_supply -= network_amount;
       } );
    }
 
