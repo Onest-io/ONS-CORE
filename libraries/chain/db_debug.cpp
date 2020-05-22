@@ -41,7 +41,6 @@ void database::debug_dump()
 {
    const auto& db = *this;
    const asset_dynamic_data_object& core_asset_data = db.get_core_asset().dynamic_asset_data_id(db);
-   const asset_dynamic_data_object& core_asset_data_vote = db.get_core_asset_vote().dynamic_asset_data_id(db);
    const auto& balance_index = db.get_index_type<account_balance_index>().indices();
    const auto& statistics_index = db.get_index_type<account_stats_index>().indices();
    const auto& bids = db.get_index_type<collateral_bid_index>().indices();
