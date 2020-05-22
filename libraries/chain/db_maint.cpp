@@ -529,7 +529,7 @@ void database::process_budget()
                                 );
          _core.accumulated_fees = 0;
       });
-      modify(vote, [&]( asset_dynamic_data_object& _core_vote )
+      modify(core_vote, [&]( asset_dynamic_data_object& _core_vote )
       {
          _core_vote.current_supply = (_core_vote.current_supply + rec.supply_delta );
 
