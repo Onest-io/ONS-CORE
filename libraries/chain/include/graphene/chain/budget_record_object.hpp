@@ -52,7 +52,6 @@ struct budget_record
 
    // change in supply due to budget operations
    share_type supply_delta = 0;
-   share_type supply_delta_vote = 0;
 };
 
 class budget_record_object : public graphene::db::abstract_object<budget_record_object>
