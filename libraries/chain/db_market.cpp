@@ -571,7 +571,7 @@ int database::match( const limit_order_object& usd, const limit_order_object& co
 
    auto usd_for_sale = usd.amount_for_sale();
    auto core_for_sale = core.amount_for_sale();
-   auto core_for_sale_vote = vote.amount_for_sale();
+   auto core_for_sale_vote = core_vote.amount_for_sale();
    asset usd_pays, usd_receives, core_pays, core_receives;
 
    auto maint_time = get_dynamic_global_properties().next_maintenance_time;
