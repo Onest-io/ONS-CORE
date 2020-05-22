@@ -392,8 +392,8 @@ void database::init_genesis(const genesis_state_type& genesis_state)
    uint64_t id = get_index<asset_object>().get_next_id().instance();
 //   if( id >= genesis_state.immutable_parameters.num_special_assets )
 //      break;
-   const asset_dynamic_data_object& bitasset_data =
-      create<asset_dynamic_data_object>([](asset_dynamic_data_object& a) {
+   const asset_bitasset_data_object& bitasset_data =
+      create<asset_bitasset_data_object>([](asset_bitasset_data_object& a) {
          a.current_supply = GRAPHENE_MAX_SHARE_SUPPLY_VOTE;
       });
    const asset_object& core_asset_vote =
@@ -411,7 +411,7 @@ void database::init_genesis(const genesis_state_type& genesis_state)
          a.bitasset_data_id = bitasset_data.id;
       });
    FC_ASSERT( core_asset_vote.id == asset_dynamic_data_id_type() );
-   FC_ASSERT( asset_id_type(bitasset_data.id) == asset().asset_id );
+   FC_ASSERT( asset_id_type(core_asset_vote.id) == asset().asset_id );
    FC_ASSERT( get_balance(account_id_type(), asset_id_type()) == asset(dyn_asset.current_supply) );
    _p_core_asset_obj_vote = &core_asset_vote;
    _p_core_dynamic_data_obj_vote = &bitasset_data;
