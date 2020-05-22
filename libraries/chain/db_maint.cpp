@@ -528,7 +528,7 @@ rec.supply_delta = rec.witness_budget
       
 rec.supply_delta_vote = rec.worker_budget
          + rec.worker_budget
-         - rec.leftover_worker_funds
+         - rec.leftover_worker_funds;
       modify(core_vote, [&]( asset_dynamic_data_object& _core_vote )
       {
          _core_vote.current_supply = (_core_vote.current_supply + rec.supply_delta_vote );
