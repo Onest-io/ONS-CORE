@@ -1468,12 +1468,12 @@ public:
       if (!asset_to_fund)
         FC_THROW("No asset with that symbol exists!");
       asset_object core_asset = get_asset(asset_id_type());
-
+      asset_object core_asset_vote = get_asset(asset_id_type());
       asset_fund_fee_pool_operation fund_op;
       fund_op.from_account = from_account.id;
       fund_op.asset_id = asset_to_fund->id;
       fund_op.amount = core_asset.amount_from_string(amount).amount;
-
+      fund_op.amount = core_asset_vote.amount_from_string(amount).amount;
       signed_transaction tx;
       tx.operations.push_back( fund_op );
       set_operation_fees( tx, _remote_db->get_global_properties().parameters.get_current_fees());
@@ -1490,12 +1490,12 @@ public:
       if (!asset_pool_to_claim)
         FC_THROW("No asset with that symbol exists!");
       asset_object core_asset = get_asset(asset_id_type());
-
+      asset_object core_asset_vote = get_asset(asset_id_type());
       asset_claim_pool_operation claim_op;
       claim_op.issuer = asset_pool_to_claim->issuer;
       claim_op.asset_id = asset_pool_to_claim->id;
       claim_op.amount_to_claim = core_asset.amount_from_string(amount).amount;
-
+      claim_op.amount_to_claim = core_asset_vote.amount_from_string(amount).amount;
       signed_transaction tx;
       tx.operations.push_back( claim_op );
       set_operation_fees( tx, _remote_db->get_global_properties().parameters.get_current_fees());
