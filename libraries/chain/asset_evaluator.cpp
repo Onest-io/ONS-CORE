@@ -142,12 +142,6 @@ object_id_type asset_create_evaluator::do_apply( const asset_create_operation& o
          dd.current_supply++;
       });
    }
-if( fee_is_odd && !hf_429 )
-   {
-      d.modify( d.get_core_dynamic_data_vote(), []( asset_dynamic_data_object& dd ) {
-         dd.current_supply++;
-      });
-   }
 
    asset_bitasset_data_id_type bit_asset_id;
 
