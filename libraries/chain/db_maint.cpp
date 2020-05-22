@@ -535,7 +535,7 @@ void database::process_budget()
 
          assert( rec.supply_delta ==
 //                                   witness_budget
-                                 + worker_budget
+                                 worker_budget
                                  - leftover_worker_funds
 //                                 - _core_vote.accumulated_fees
 //                                 - dpo.witness_budget
