@@ -387,11 +387,11 @@ void database::init_genesis(const genesis_state_type& genesis_state)
    _p_core_dynamic_data_obj = &dyn_asset;
    
 // Create core-vote asset
-   while( true )
-     {
+//   while( true )
+//     {
    uint64_t id = get_index<asset_object>().get_next_id().instance();
-   if( id >= genesis_state.immutable_parameters.num_special_assets )
-      break;
+//   if( id >= genesis_state.immutable_parameters.num_special_assets )
+//      break;
    const asset_dynamic_data_object& dyn_asset =
       create<asset_dynamic_data_object>([](asset_dynamic_data_object& a) {
          a.current_supply = GRAPHENE_MAX_SHARE_SUPPLY_VOTE;
@@ -416,7 +416,7 @@ void database::init_genesis(const genesis_state_type& genesis_state)
    _p_core_asset_obj_vote = &core_asset_vote;
    _p_core_dynamic_data_obj_vote = &dyn_asset;
 
-   }
+//   }
 
 // Create vote
    
