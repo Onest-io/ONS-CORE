@@ -510,9 +510,7 @@ void database::process_budget()
       rec.leftover_worker_funds = leftover_worker_funds;
       available_funds += leftover_worker_funds;
 
-      rec.supply_delta = rec.witness_budget
-         + rec.worker_budget
-         - rec.leftover_worker_funds
+rec.supply_delta = rec.witness_budget
          - rec.from_accumulated_fees
          - rec.from_unused_witness_budget;
 
@@ -522,23 +520,23 @@ void database::process_budget()
 
          assert( rec.supply_delta ==
                                    witness_budget
-//                                 + worker_budget
-//                                 - leftover_worker_funds
                                  - _core.accumulated_fees
                                  - dpo.witness_budget
                                 );
          _core.accumulated_fees = 0;
       });
+      
+rec.supply_delta_vote = rec.worker_budget
+         + rec.worker_budget
+         - rec.leftover_worker_funds
       modify(core_vote, [&]( asset_dynamic_data_object& _core_vote )
       {
-         _core_vote.current_supply = (_core_vote.current_supply + rec.supply_delta );
+         _core_vote.current_supply = (_core_vote.current_supply + rec.supply_delta_vote );
 
-         assert( rec.supply_delta ==
-//                                   witness_budget
+         assert( rec.supply_delta_vote ==
                                  worker_budget
                                  - leftover_worker_funds
-//                                 - _core_vote.accumulated_fees
-//                                 - dpo.witness_budget
+                                 - _core_vote.accumulated_fees
                                 );
          _core_vote.accumulated_fees = 0;
       });
