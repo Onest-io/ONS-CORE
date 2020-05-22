@@ -80,24 +80,11 @@ void database::debug_dump()
       if( for_sale.asset_id == asset_id_type() ) core_in_orders += for_sale.amount;
       total_balances[for_sale.asset_id] += for_sale.amount;
    }
-      {
- //     idump(("limit_order")(o));
-      auto for_sale = o.amount_for_sale();
-      if( for_sale.asset_id == asset_id_type() ) core_in_orders_vote += for_sale.amount;
-      total_balances[for_sale.asset_id] += for_sale.amount;
-   }
    for( const call_order_object& o : db.get_index_type<call_order_index>().indices() )
    {
 //      idump(("call_order")(o));
       auto col = o.get_collateral();
       if( col.asset_id == asset_id_type() ) core_in_orders += col.amount;
-      total_balances[col.asset_id] += col.amount;
-      total_debts[o.get_debt().asset_id] += o.get_debt().amount;
-   }
-      {
-//      idump(("call_order")(o));
-      auto col = o.get_collateral();
-      if( col.asset_id == asset_id_type() ) core_in_orders_vote += col.amount;
       total_balances[col.asset_id] += col.amount;
       total_debts[o.get_debt().asset_id] += o.get_debt().amount;
    }
@@ -113,12 +100,6 @@ void database::debug_dump()
       FC_THROW( "computed balance of CORE mismatch",
                 ("computed value",total_balances[asset_id_type()].value)
                 ("current supply",core_asset_data.current_supply.value) );
-   }
-if( total_balances[asset_id_type()].value != core_asset_data_vote.current_supply.value )
-   {
-      FC_THROW( "computed balance of CORE mismatch",
-                ("computed value",total_balances[asset_id_type()].value)
-                ("current supply",core_asset_data_vote.current_supply.value) );
    }
 
    /*
