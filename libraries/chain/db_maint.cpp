@@ -409,7 +409,7 @@ void database::initialize_budget_record( fc::time_point_sec now, budget_record& 
    const asset_dynamic_data_object& core_dd_vote = get_core_dynamic_data_vote();
 
    rec.from_initial_reserve = core.reserved(*this);
-      rec.from_initial_reserve = core_vote.reserved(*this);
+   rec.from_initial_reserve_vote = core_vote.reserved(*this);
    rec.from_accumulated_fees = core_dd.accumulated_fees;
    rec.from_accumulated_fees = core_dd_vote.accumulated_fees;
    rec.from_unused_witness_budget = dpo.witness_budget;
@@ -431,7 +431,7 @@ void database::initialize_budget_record( fc::time_point_sec now, budget_record& 
    // are available for the budget at this point, but not included
    // in core.reserved().
    share_type reserve = rec.from_initial_reserve + core_dd.accumulated_fees;
-   share_type reserve = rec.from_initial_reserve + core_dd_vote.accumulated_fees;
+   share_type reserve = rec.from_initial_reserve_vote + core_dd_vote.accumulated_fees;
    // Similarly, we consider leftover witness_budget to be burned
    // at the BEGINNING of the maintenance interval.
    reserve += dpo.witness_budget;
