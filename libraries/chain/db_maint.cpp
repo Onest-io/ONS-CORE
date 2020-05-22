@@ -404,10 +404,12 @@ void database::initialize_budget_record( fc::time_point_sec now, budget_record& 
 {
    const dynamic_global_property_object& dpo = get_dynamic_global_properties();
    const asset_object& core = get_core_asset();
+   const asset_object& core_vote = get_core_asset_vote();
    const asset_dynamic_data_object& core_dd = get_core_dynamic_data();
    const asset_dynamic_data_object& core_dd_vote = get_core_dynamic_data_vote();
 
    rec.from_initial_reserve = core.reserved(*this);
+      rec.from_initial_reserve = core_vote.reserved(*this);
    rec.from_accumulated_fees = core_dd.accumulated_fees;
    rec.from_accumulated_fees = core_dd_vote.accumulated_fees;
    rec.from_unused_witness_budget = dpo.witness_budget;
@@ -460,7 +462,7 @@ void database::process_budget()
       const global_property_object& gpo = get_global_properties();
       const dynamic_global_property_object& dpo = get_dynamic_global_properties();
       const asset_dynamic_data_object& core = get_core_dynamic_data();
-      const asset_dynamic_data_object& core = get_core_dynamic_data_vote();
+      const asset_dynamic_data_object& core_vote = get_core_dynamic_data_vote();
       fc::time_point_sec now = head_block_time();
 
       int64_t time_to_maint = (dpo.next_maintenance_time - now).to_seconds();
@@ -520,14 +522,26 @@ void database::process_budget()
 
          assert( rec.supply_delta ==
                                    witness_budget
-                                 + worker_budget
-                                 - leftover_worker_funds
+//                                 + worker_budget
+//                                 - leftover_worker_funds
                                  - _core.accumulated_fees
                                  - dpo.witness_budget
                                 );
          _core.accumulated_fees = 0;
       });
+      modify(core, [&]( asset_dynamic_data_object& _core_vote )
+      {
+         _core_vote.current_supply = (_core_vote.current_supply + rec.supply_delta );
 
+         assert( rec.supply_delta ==
+//                                   witness_budget
+                                 + worker_budget
+                                 - leftover_worker_funds
+                                 - _core_vote.accumulated_fees
+//                                 - dpo.witness_budget
+                                );
+         _core_vote.accumulated_fees = 0;
+      });
       modify(dpo, [&]( dynamic_global_property_object& _dpo )
       {
          // Since initial witness_budget was rolled into
