@@ -529,7 +529,7 @@ void database::process_budget()
                                 );
          _core.accumulated_fees = 0;
       });
-      modify(core, [&]( asset_dynamic_data_object& _core_vote )
+      modify(vote, [&]( asset_dynamic_data_object& _core_vote )
       {
          _core_vote.current_supply = (_core_vote.current_supply + rec.supply_delta );
 
@@ -537,7 +537,7 @@ void database::process_budget()
 //                                   witness_budget
                                  + worker_budget
                                  - leftover_worker_funds
-                                 - _core_vote.accumulated_fees
+//                                 - _core_vote.accumulated_fees
 //                                 - dpo.witness_budget
                                 );
          _core_vote.accumulated_fees = 0;
