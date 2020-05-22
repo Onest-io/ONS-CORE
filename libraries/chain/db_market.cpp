@@ -571,7 +571,6 @@ int database::match( const limit_order_object& usd, const limit_order_object& co
 
    auto usd_for_sale = usd.amount_for_sale();
    auto core_for_sale = core.amount_for_sale();
-   auto core_for_sale_vote = core_vote.amount_for_sale();
    asset usd_pays, usd_receives, core_pays, core_receives;
 
    auto maint_time = get_dynamic_global_properties().next_maintenance_time;
@@ -581,9 +580,7 @@ int database::match( const limit_order_object& usd, const limit_order_object& co
    if( usd_for_sale <= core_for_sale * match_price ) // rounding down here should be fine
    {
       usd_receives  = usd_for_sale * match_price; // round down, in favor of bigger order
-   if( usd_for_sale <= core_for_sale_vote * match_price ) // rounding down here should be fine
-   {
-      usd_receives  = usd_for_sale * match_price; // round down, in favor of bigger order
+      
       // Be here, it's possible that taker is paying something for nothing due to partially filled in last loop.
       // In this case, we see it as filled and cancel it later
       if( usd_receives.amount == 0 && maint_time > HARDFORK_CORE_184_TIME )
