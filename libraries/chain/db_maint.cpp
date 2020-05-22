@@ -431,7 +431,7 @@ void database::initialize_budget_record( fc::time_point_sec now, budget_record& 
    // are available for the budget at this point, but not included
    // in core.reserved().
    share_type reserve = rec.from_initial_reserve + core_dd.accumulated_fees;
-   share_type reserve = rec.from_initial_reserve_vote + core_dd_vote.accumulated_fees;
+   //share_type reserve = rec.from_initial_reserve_vote + core_dd_vote.accumulated_fees;
    // Similarly, we consider leftover witness_budget to be burned
    // at the BEGINNING of the maintenance interval.
    reserve += dpo.witness_budget;
