@@ -415,7 +415,6 @@ void database::init_genesis(const genesis_state_type& genesis_state)
    FC_ASSERT( get_balance(account_id_type(), asset_id_type()) == asset(dyn_asset.current_supply) );
    _p_core_asset_obj_vote = &core_asset_vote;
    _p_core_dynamic_data_obj_vote = &dyn_asset;
-   remove( asset_obj );
 
    }
 
