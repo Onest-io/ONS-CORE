@@ -526,20 +526,6 @@ rec.supply_delta = rec.witness_budget
          _core.accumulated_fees = 0;
       });
       
-rec.supply_delta_vote = rec.worker_budget
-         + rec.worker_budget
-         - rec.leftover_worker_funds;
-      modify(core_vote, [&]( asset_dynamic_data_object& _core_vote )
-      {
-         _core_vote.current_supply = (_core_vote.current_supply + rec.supply_delta_vote );
-
-         assert( rec.supply_delta_vote ==
-                                 worker_budget
-                                 - leftover_worker_funds
-                                 - _core_vote.accumulated_fees
-                                );
-         _core_vote.accumulated_fees = 0;
-      });
       modify(dpo, [&]( dynamic_global_property_object& _dpo )
       {
          // Since initial witness_budget was rolled into
@@ -670,7 +656,6 @@ void split_fba_balance(
    FC_ASSERT( buyback_amount + issuer_amount <= fba.accumulated_fba_fees );
 
    share_type network_amount = fba.accumulated_fba_fees - (buyback_amount + issuer_amount);
-
    const asset_object& designated_asset = (*fba.designated_asset)(db);
 
    if( network_amount != 0 )
@@ -678,12 +663,6 @@ void split_fba_balance(
       db.modify( core_dd, [&]( asset_dynamic_data_object& _core_dd )
       {
          _core_dd.current_supply -= network_amount;
-      } );
-   if( network_amount != 0 )
-   {
-      db.modify( core_dd, [&]( asset_dynamic_data_object& _core_dd_vote )
-      {
-         _core_dd_vote.current_supply -= network_amount;
       } );
    }
 
