@@ -70,7 +70,6 @@ void database::debug_dump()
    {
     //  idump(("statistics")(s));
       reported_core_in_orders += s.total_core_in_orders;
-      reported_core_in_orders_vote += s.total_core_in_orders_vote;
    }
    for( const collateral_bid_object& b : bids )
       total_balances[b.inv_swan_price.base.asset_id] += b.inv_swan_price.base.amount;
