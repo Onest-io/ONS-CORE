@@ -382,57 +382,7 @@ void database::init_genesis(const genesis_state_type& genesis_state)
    _p_core_dynamic_data_obj = &dyn_asset;
    
 // Create core-vote asset
-
- uint64_t id = get_index<asset_object>().get_next_id().instance();
-      const asset_dynamic_data_object& dyn_asset =
-         create<asset_dynamic_data_object>([](asset_dynamic_data_object& a) {
-            a.current_supply = 0;
-         });
-      const asset_object& asset_obj = create<asset_object>( [id,&dyn_asset]( asset_object& a ) {
-         a.symbol = GRAPHENE_SYMBOL_VOTE;
-         a.options.max_supply = GRAPHENE_MAX_SHARE_SUPPLY_VOTE;
-         a.precision = GRAPHENE_BLOCKCHAIN_PRECISION_DIGITS;
-         a.options.flags = 0;
-         a.options.issuer_permissions = 0;
-         a.issuer = GRAPHENE_NULL_ACCOUNT;
-         a.options.core_exchange_rate.base.amount = 1;
-         a.options.core_exchange_rate.base.asset_id = asset_id_type(0);
-         a.options.core_exchange_rate.quote.amount = 1;
-         a.options.core_exchange_rate.quote.asset_id = asset_id_type(0);
-         a.dynamic_asset_data_id = dyn_asset.id;
-      });
-      FC_ASSERT( asset_obj.get_id() == asset_id_type(id) );
-      remove( asset_obj );
-
-// Create vote
    
-//   while( true )
-//   {
-//      uint64_t id = get_index<asset_object>().get_next_id().instance();
-//      if( id >= genesis_state.immutable_parameters.num_special_assets )
-//         break;
-//      const asset_dynamic_data_object& dyn_asset =
-//         create<asset_dynamic_data_object>([](asset_dynamic_data_object& a) {
-//            a.current_supply = GRAPHENE_MAX_SHARE_SUPPLY_VOTE;
-//         });
-//      const asset_object& asset_obj = create<asset_object>( [id,&dyn_asset]( asset_object& a ) {
-//         a.symbol = GRAPHENE_SYMBOL_VOTE;
-//         a.options.max_supply = GRAPHENE_MAX_SHARE_SUPPLY_VOTE;
-//         a.precision = GRAPHENE_BLOCKCHAIN_PRECISION_DIGITS;
-//         a.options.flags = 0;
-//         a.options.issuer_permissions = 0;
-//         a.issuer = GRAPHENE_NULL_ACCOUNT;
-//         a.options.core_exchange_rate.base.amount = 1;
-//         a.options.core_exchange_rate.base.asset_id = asset_id_type(0);
-//         a.options.core_exchange_rate.quote.amount = 1;
-//         a.options.core_exchange_rate.quote.asset_id = asset_id_type(0);
-//         a.dynamic_asset_data_id = dyn_asset.id;
-//      });
-//      FC_ASSERT( asset_obj.get_id() == asset_id_type(id) );
-//      remove( asset_obj );
-//   }
-   
-   // Create more special assets
    while( true )
    {
       uint64_t id = get_index<asset_object>().get_next_id().instance();
