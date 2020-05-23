@@ -384,8 +384,6 @@ void database::init_genesis(const genesis_state_type& genesis_state)
 // Create core-vote asset
 
  uint64_t id = get_index<asset_object>().get_next_id().instance();
-      if( id >= genesis_state.immutable_parameters.num_special_assets )
-         break;
       const asset_dynamic_data_object& dyn_asset =
          create<asset_dynamic_data_object>([](asset_dynamic_data_object& a) {
             a.current_supply = 0;
