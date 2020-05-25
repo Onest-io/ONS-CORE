@@ -219,9 +219,6 @@ void database::deposit_cashback(const account_object& acct, share_type amount, b
       modify( get_core_dynamic_data(), [amount](asset_dynamic_data_object& d) {
          d.current_supply -= amount;
       });
-      modify( get_core_dynamic_data_vote(), [amount](asset_dynamic_data_object& d) {
-         d.current_supply -= amount;
-      });
       return;
    }
 
