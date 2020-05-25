@@ -323,7 +323,6 @@
     }
   ],
   "initial_vesting_balances": [],
-  "initial_assets":[{"accumulated_fees":0,"collateral_records":[],"description":"Voting utility","is_bitasset":false,"issuer_name":"null-account","max_supply":"365867569267000","precision":3,"symbol":"VOTE"}],
   "initial_active_witnesses": 11,
   "initial_witness_candidates": [{
       "owner_name": "init0",
