@@ -41,6 +41,7 @@ void database::debug_dump()
 {
    const auto& db = *this;
    const asset_dynamic_data_object& core_asset_data = db.get_core_asset().dynamic_asset_data_id(db);
+
    const auto& balance_index = db.get_index_type<account_balance_index>().indices();
    const auto& statistics_index = db.get_index_type<account_stats_index>().indices();
    const auto& bids = db.get_index_type<collateral_bid_index>().indices();
@@ -49,8 +50,6 @@ void database::debug_dump()
    map<asset_id_type,share_type> total_debts;
    share_type core_in_orders;
    share_type reported_core_in_orders;
-   share_type core_in_orders_vote;
-   share_type reported_core_in_orders_vote;
 
    for( const account_balance_object& a : balance_index )
    {
@@ -100,6 +99,7 @@ void database::debug_dump()
                 ("computed value",total_balances[asset_id_type()].value)
                 ("current supply",core_asset_data.current_supply.value) );
    }
+
 
    /*
    const auto& vbidx = db.get_index_type<simple_index<vesting_balance_object>>();
