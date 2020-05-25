@@ -601,8 +601,8 @@ namespace graphene { namespace chain {
          ///@{
          const asset_object*                    _p_core_asset_obj          = nullptr;
          const asset_dynamic_data_object*       _p_core_dynamic_data_obj   = nullptr;
-         const asset_object*                    _p_core_asset_obj_vote     = nullptr;
-         const asset_dynamic_data_object*       _p_core_dynamic_data_obj_vote = nullptr;
+         const asset_object_vote*                    _p_core_asset_obj_vote     = nullptr;
+         const asset_dynamic_data_object_vote*       _p_core_dynamic_data_obj_vote = nullptr;
          const global_property_object*          _p_global_prop_obj         = nullptr;
          const dynamic_global_property_object*  _p_dyn_global_prop_obj     = nullptr;
          const chain_property_object*           _p_chain_property_obj      = nullptr;
