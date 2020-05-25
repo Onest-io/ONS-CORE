@@ -383,12 +383,12 @@ void database::init_genesis(const genesis_state_type& genesis_state)
    
    // Create vote asset
    
-   const asset_dynamic_data_object_vote& dyn_asset =
-      create<asset_dynamic_data_object_vote>([](asset_dynamic_data_object_vote& a) {
+   const asset_dynamic_data_object& dyn_asset =
+      create<asset_dynamic_data_object>([](asset_dynamic_data_object& a) {
          a.current_supply = GRAPHENE_MAX_SHARE_SUPPLY_VOTE;
       });
-   const asset_object_vote& core_asset_vote =
-     create<asset_object_vote>( [&genesis_state,&dyn_asset]( asset_object_vote& a ) {
+   const asset_object& core_asset_vote =
+     create<asset_object>( [&genesis_state,&dyn_asset]( asset_object& a ) {
          a.symbol = GRAPHENE_SYMBOL_VOTE;
          a.options.max_supply = genesis_state.max_core_supply_vote;
          a.precision = GRAPHENE_BLOCKCHAIN_PRECISION_DIGITS;
