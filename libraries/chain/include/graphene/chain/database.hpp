@@ -262,8 +262,8 @@ namespace graphene { namespace chain {
          const chain_id_type&                   get_chain_id()const;
          const asset_object&                    get_core_asset()const;
          const asset_dynamic_data_object&       get_core_dynamic_data()const;
-         const asset_object&                    get_core_asset_vote()const;
-         const asset_dynamic_data_object&       get_core_dynamic_data_vote()const;
+         const asset_object_vote&                    get_core_asset_vote()const;
+         const asset_dynamic_data_object_vote&       get_core_dynamic_data_vote()const;
          const chain_property_object&           get_chain_properties()const;
          const global_property_object&          get_global_properties()const;
          const dynamic_global_property_object&  get_dynamic_global_properties()const;
