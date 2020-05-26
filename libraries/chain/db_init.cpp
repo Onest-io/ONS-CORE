@@ -387,14 +387,14 @@ void database::init_genesis(const genesis_state_type& genesis_state)
      create<asset_object>( [&genesis_state,&dyn_asset]( asset_object& a ) {
          a.symbol = GRAPHENE_SYMBOL_VOTE;
          a.options.max_supply = genesis_state.max_core_supply_vote;
-         a.precision = GRAPHENE_BLOCKCHAIN_PRECISION_DIGITS;
+         a.precision = GRAPHENE_BLOCKCHAIN_PRECISION_DIGITS_VOTE;
          a.options.flags = 0;
          a.options.issuer_permissions = 0;
          a.issuer = GRAPHENE_NULL_ACCOUNT;
          a.options.core_exchange_rate.base.amount = 1;
-         a.options.core_exchange_rate.base.asset_id = asset_id_type(0);
+         a.options.core_exchange_rate.base.asset_id = asset_id_type(id);
          a.options.core_exchange_rate.quote.amount = 1;
-         a.options.core_exchange_rate.quote.asset_id = asset_id_type(0);
+         a.options.core_exchange_rate.quote.asset_id = asset_id_type(id);
          a.dynamic_asset_data_id = dyn_asset.id;
       });
    FC_ASSERT( dyn_asset.id == asset_dynamic_data_id_type() );
