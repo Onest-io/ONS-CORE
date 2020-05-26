@@ -427,7 +427,6 @@ void database::initialize_budget_record( fc::time_point_sec now, budget_record& 
    // are available for the budget at this point, but not included
    // in core.reserved().
    share_type reserve = rec.from_initial_reserve + core_dd.accumulated_fees;
-
    // Similarly, we consider leftover witness_budget to be burned
    // at the BEGINNING of the maintenance interval.
    reserve += dpo.witness_budget;
@@ -505,7 +504,9 @@ void database::process_budget()
       rec.leftover_worker_funds = leftover_worker_funds;
       available_funds += leftover_worker_funds;
 
-rec.supply_delta = rec.witness_budget
+      rec.supply_delta = rec.witness_budget
+         + rec.worker_budget
+         - rec.leftover_worker_funds
          - rec.from_accumulated_fees
          - rec.from_unused_witness_budget;
 
@@ -515,12 +516,14 @@ rec.supply_delta = rec.witness_budget
 
          assert( rec.supply_delta ==
                                    witness_budget
+                                 + worker_budget
+                                 - leftover_worker_funds
                                  - _core.accumulated_fees
                                  - dpo.witness_budget
                                 );
          _core.accumulated_fees = 0;
       });
-      
+
       modify(dpo, [&]( dynamic_global_property_object& _dpo )
       {
          // Since initial witness_budget was rolled into
@@ -643,6 +646,7 @@ void split_fba_balance(
    FC_ASSERT( buyback_amount + issuer_amount <= fba.accumulated_fba_fees );
 
    share_type network_amount = fba.accumulated_fba_fees - (buyback_amount + issuer_amount);
+
    const asset_object& designated_asset = (*fba.designated_asset)(db);
 
    if( network_amount != 0 )
