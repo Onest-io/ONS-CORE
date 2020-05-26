@@ -404,12 +404,9 @@ void database::initialize_budget_record( fc::time_point_sec now, budget_record& 
 {
    const dynamic_global_property_object& dpo = get_dynamic_global_properties();
    const asset_object& core = get_core_asset();
-   const asset_object& core_vote = get_core_asset_vote();
    const asset_dynamic_data_object& core_dd = get_core_dynamic_data();
-   const asset_dynamic_data_object& core_dd_vote = get_core_dynamic_data_vote();
 
    rec.from_initial_reserve = core.reserved(*this);
-   rec.from_initial_reserve_vote = core_vote.reserved(*this);
    rec.from_accumulated_fees = core_dd.accumulated_fees;
    rec.from_unused_witness_budget = dpo.witness_budget;
 
@@ -461,7 +458,6 @@ void database::process_budget()
       const global_property_object& gpo = get_global_properties();
       const dynamic_global_property_object& dpo = get_dynamic_global_properties();
       const asset_dynamic_data_object& core = get_core_dynamic_data();
-      const asset_dynamic_data_object& core_vote = get_core_dynamic_data_vote();
       fc::time_point_sec now = head_block_time();
 
       int64_t time_to_maint = (dpo.next_maintenance_time - now).to_seconds();
@@ -618,7 +614,6 @@ void split_fba_balance(
       return;
 
    const asset_dynamic_data_object& core_dd = db.get_core_dynamic_data();
-   const asset_dynamic_data_object& core_dd_vote = db.get_core_dynamic_data_vote();
 
    if( !fba.is_configured(db) )
    {
