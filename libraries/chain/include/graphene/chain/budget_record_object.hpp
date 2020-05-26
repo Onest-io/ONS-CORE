@@ -33,7 +33,6 @@ struct budget_record
 
    // sources of budget
    share_type from_initial_reserve = 0;
-   share_type from_initial_reserve_vote = 0;
    share_type from_accumulated_fees = 0;
    share_type from_unused_witness_budget = 0;
 
