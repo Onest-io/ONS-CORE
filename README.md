@@ -52,7 +52,7 @@ Example:
 
 
     sudo apt-get update
-    sudo apt-get install autoconf cmake make automake libtool git libboost-all-dev libssl-dev gcc-7 g++-7 libcurl4-openssl-dev doxygen
+    sudo apt-get install autoconf cmake make automake libtool git libboost-all-dev libssl-dev gcc-7 g++-7 libcurl4-openssl-dev doxygen graphviz
 
 
 **2) Compiling and Building with Official Onest Blockchain Source Code:**
