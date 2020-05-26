@@ -579,9 +579,6 @@ void update_top_n_authorities( database& db )
          uint8_t num_needed = tha.num_top_holders;
          if( num_needed == 0 )
             return;
-         const auto& votz = db.get_index_type< account_balance_index >().indices().get< asset_id_type >();
-         if ( votz != 1 )
-            return;
 
          // find accounts
          const auto range = bal_idx.equal_range( boost::make_tuple( tha.asset ) );
