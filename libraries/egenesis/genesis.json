@@ -246,11 +246,6 @@
     }
   },
   "initial_accounts": [{
-      "name": "bitshares-vision",
-      "owner_key": "ONS7Rfr9rePnkxdxNZBS717ZxZVAGz6XQgZnZDuVTfhvoWGAR67jY",
-      "active_key": "ONS7Rfr9rePnkxdxNZBS717ZxZVAGz6XQgZnZDuVTfhvoWGAR67jY",
-      "is_lifetime_member": true
-    },{
       "name": "init0",
       "owner_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "active_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
@@ -310,6 +305,16 @@
       "owner_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "active_key": "ONS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "is_lifetime_member": false
+      },{
+      "name": "bitshares-vision",
+      "owner_key": "ONS7Rfr9rePnkxdxNZBS717ZxZVAGz6XQgZnZDuVTfhvoWGAR67jY",
+      "active_key": "ONS7Rfr9rePnkxdxNZBS717ZxZVAGz6XQgZnZDuVTfhvoWGAR67jY",
+      "is_lifetime_member": true
+    },{
+      "name": "ammar-yousef",
+      "owner_key": "ONS7gBUFYe16bGU1nXFjRp4yLy2UYP8YfTrVjWuy358Aq2kutwpNQ",
+      "active_key": "ONS7gBUFYe16bGU1nXFjRp4yLy2UYP8YfTrVjWuy358Aq2kutwpNQ",
+      "is_lifetime_member": true
     }
   ],
   "initial_balances": [{
