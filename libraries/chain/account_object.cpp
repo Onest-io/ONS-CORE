@@ -344,6 +344,7 @@ FC_REFLECT_DERIVED_NO_TYPENAME( graphene::chain::account_statistics_object,
                     (total_ops)(removed_ops)
                     (total_core_in_orders)
                     (core_in_balance)
+                    (vote_in_balance)
                     (has_cashback_vb)
                     (is_voting)
                     (last_vote_time)
