@@ -205,8 +205,6 @@ void database::open(
       {
          _p_core_asset_obj = &get( asset_id_type() );
          _p_core_dynamic_data_obj = &get( asset_dynamic_data_id_type() );
-         _p_core_asset_obj_vote = &get( asset_id_type() );
-         _p_core_dynamic_data_obj_vote = &get( asset_dynamic_data_id_type() );
          _p_global_prop_obj = &get( global_property_id_type() );
          _p_chain_property_obj = &get( chain_property_id_type() );
          _p_dyn_global_prop_obj = &get( dynamic_global_property_id_type() );
