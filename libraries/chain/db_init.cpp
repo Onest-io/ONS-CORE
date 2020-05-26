@@ -400,8 +400,6 @@ void database::init_genesis(const genesis_state_type& genesis_state)
       });
      FC_ASSERT( asset_obj.get_id() == asset_id_type(id) );
      remove( asset_obj );
-     _p_core_asset_obj_vote = &core_asset_vote;
-     _p_core_dynamic_data_obj_vote = &dyn_asset;
    
    while( true )
    {
