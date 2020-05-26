@@ -53,7 +53,6 @@ FC_REFLECT_DERIVED_NO_TYPENAME(
    graphene::chain::budget_record, BOOST_PP_SEQ_NIL,
    (time_since_last_budget)
    (from_initial_reserve)
-   (from_initial_reserve_vote)
    (from_accumulated_fees)
    (from_unused_witness_budget)
    (requested_witness_budget)
