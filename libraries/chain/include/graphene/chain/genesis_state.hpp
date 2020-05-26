@@ -102,7 +102,6 @@ struct genesis_state_type {
 
    time_point_sec                           initial_timestamp;
    share_type                               max_core_supply = GRAPHENE_MAX_SHARE_SUPPLY;
-   share_type                               max_core_supply_vote = GRAPHENE_MAX_SHARE_SUPPLY_VOTE;
    chain_parameters                         initial_parameters;
    immutable_chain_parameters               immutable_parameters;
    vector<initial_account_type>             initial_accounts;
