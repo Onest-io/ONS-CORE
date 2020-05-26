@@ -364,7 +364,7 @@ void database::init_genesis(const genesis_state_type& genesis_state)
    const asset_object& core_asset =
      create<asset_object>( [&genesis_state,&dyn_asset]( asset_object& a ) {
          a.symbol = GRAPHENE_SYMBOL;
-         a.options.max_supply = genesis_state.max_core_supply;
+         a.options.max_supply = GRAPHENE_MAX_SHARE_SUPPLY;
          a.precision = GRAPHENE_BLOCKCHAIN_PRECISION_DIGITS;
          a.options.flags = 0;
          a.options.issuer_permissions = 0;
