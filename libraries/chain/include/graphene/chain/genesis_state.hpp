@@ -65,6 +65,7 @@ struct genesis_state_type {
 
       string description;
       uint8_t precision = GRAPHENE_BLOCKCHAIN_PRECISION_DIGITS;
+      uint8_t precision_vote = GRAPHENE_BLOCKCHAIN_PRECISION_DIGITS_VOTE;
 
       share_type max_supply;
       share_type accumulated_fees;
