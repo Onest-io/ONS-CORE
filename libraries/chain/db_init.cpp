@@ -382,9 +382,13 @@ void database::init_genesis(const genesis_state_type& genesis_state)
    _p_core_dynamic_data_obj = &dyn_asset;
 
    // Create vote asset
+      const asset_dynamic_data_object& dyn_asset =
+         create<asset_dynamic_data_object>([](asset_dynamic_data_object& a) {
+            a.current_supply = GRAPHENE_MAX_SHARE_SUPPLY_VOTE;
+         });
    uint64_t id = get_index<asset_object>().get_next_id().instance();
    const asset_object& core_asset_vote =
-     create<asset_object>( [&genesis_state,&dyn_asset]( asset_object& a ) {
+     create<asset_object>( [id,&dyn_asset]( asset_object& a ) {
          a.symbol = GRAPHENE_SYMBOL_VOTE;
          a.options.max_supply = genesis_state.max_core_supply_vote;
          a.precision = GRAPHENE_BLOCKCHAIN_PRECISION_DIGITS_VOTE;
@@ -397,11 +401,13 @@ void database::init_genesis(const genesis_state_type& genesis_state)
          a.options.core_exchange_rate.quote.asset_id = asset_id_type(0);
          a.dynamic_asset_data_id = dyn_asset.id;
       });
-   FC_ASSERT( dyn_asset.id == asset_dynamic_data_id_type() );
-   FC_ASSERT( asset_id_type(core_asset_vote.id) == asset_id_type(id) );
-   FC_ASSERT( get_balance(account_id_type(), asset_id_type()) == asset(dyn_asset.current_supply) );
-   _p_core_asset_obj_vote = &core_asset_vote;
-   _p_core_dynamic_data_obj_vote = &dyn_asset;
+     FC_ASSERT( core_asset_vote.get_id() == asset_id_type(id) );
+     remove( core_asset_vote );
+//   FC_ASSERT( dyn_asset.id == asset_dynamic_data_id_type() );
+//   FC_ASSERT( asset_id_type(core_asset_vote.id) == asset_id_type(id) );
+//   FC_ASSERT( get_balance(account_id_type(), asset_id_type()) == asset(dyn_asset.current_supply) );
+//   _p_core_asset_obj_vote = &core_asset_vote;
+//   _p_core_dynamic_data_obj_vote = &dyn_asset;
    
    while( true )
    {
