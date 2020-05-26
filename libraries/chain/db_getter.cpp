@@ -35,19 +35,9 @@ const asset_object& database::get_core_asset() const
    return *_p_core_asset_obj;
 }
 
-const asset_object& database::get_core_asset_vote() const
-{
-   return *_p_core_asset_obj_vote;
-}
-
 const asset_dynamic_data_object& database::get_core_dynamic_data() const
 {
    return *_p_core_dynamic_data_obj;
-}
-
-const asset_dynamic_data_object& database::get_core_dynamic_data_vote() const
-{
-   return *_p_core_dynamic_data_obj_vote;
 }
 
 const global_property_object& database::get_global_properties()const
