@@ -389,7 +389,6 @@ void database::init_genesis(const genesis_state_type& genesis_state)
          a.symbol = GRAPHENE_SYMBOL_VOTE;
          a.options.max_supply = genesis_state.max_core_supply_vote;
          a.precision = GRAPHENE_BLOCKCHAIN_PRECISION_DIGITS_VOTE;
-         a.current_supply = GRAPHENE_MAX_SHARE_SUPPLY_VOTE;
          a.options.flags = 0;
          a.options.issuer_permissions = 0;
          a.issuer = GRAPHENE_NULL_ACCOUNT;
@@ -401,9 +400,6 @@ void database::init_genesis(const genesis_state_type& genesis_state)
       });
      FC_ASSERT( asset_obj.get_id() == asset_id_type(id) );
      remove( asset_obj );
-//   FC_ASSERT( dyn_asset.id == asset_dynamic_data_id_type() );
-//   FC_ASSERT( asset_id_type(core_asset_vote.id) == asset_id_type(id) );
-//   FC_ASSERT( get_balance(account_id_type(), asset_id_type()) == asset(dyn_asset.current_supply) );
      _p_core_asset_obj_vote = &core_asset_vote;
      _p_core_dynamic_data_obj_vote = &dyn_asset;
    
