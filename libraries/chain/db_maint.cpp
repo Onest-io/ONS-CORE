@@ -1176,7 +1176,7 @@ void database::perform_chain_maintenance(const signed_block& next_block, const g
                                      : d.get(stake_account.options.voting_account);
 
             uint64_t voting_stake = stats.total_core_in_orders.value
-                  + (stake_account.cashback_vb.valid() ? (*stake_account.cashback_vb)(d).balance.amount.value: 0)
+                  + (stake_account.cashback_vb.valid() ? (*stake_account.cashback_vb)(d).balance.amount.value: 1)
                   + stats.core_in_balance.value;
 
             for( vote_id_type id : opinion_account.options.votes )
