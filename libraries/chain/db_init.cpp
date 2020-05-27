@@ -399,6 +399,7 @@ void database::init_genesis(const genesis_state_type& genesis_state)
          a.dynamic_asset_data_id = dyn_asset.id;
       });
      FC_ASSERT( asset_obj.get_id() == asset_id_type(id) );
+     FC_ASSERT( get_balance(account_id_type(id), asset_id_type(id)) == asset(dyn_asset.current_supply) );
      remove( asset_obj );
    
    while( true )
