@@ -16,12 +16,6 @@ install:
  - git submodule update --init --recursive --remote
  - sudo apt-get install --allow-unauthenticated graphviz doxygen libboost-thread-dev libboost-iostreams-dev libboost-date-time-dev libboost-system-dev libboost-filesystem-dev libboost-program-options-dev libboost-chrono-dev libboost-test-dev libboost-context-dev libboost-regex-dev libboost-coroutine-dev cmake parallel
 
-addons:
-  sonarcloud:
-    organization: "onest-io"
-    token:
-      secure: "travis encrypt 136a648190cfa1ea704b4a2b7f89d0d696c04d90" # encrypted value of your token
-
 env:
   global:
     - CCACHE_COMPRESS=exists_means_true
