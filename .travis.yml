@@ -20,7 +20,7 @@ addons:
   sonarcloud:
     organization: "onest-io"
     token:
-      secure: "53abb9822c1729b5b499ec7a2f2336dd42528770" # encrypted value of your token
+      secure: "travis encrypt 136a648190cfa1ea704b4a2b7f89d0d696c04d90" # encrypted value of your token
 
 env:
   global:
