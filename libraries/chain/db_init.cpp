@@ -385,7 +385,7 @@ void database::init_genesis(const genesis_state_type& genesis_state)
    
    uint64_t id = get_index<asset_object>().get_next_id().instance();
    const asset_object& asset_obj =
-     create<asset_object>( [id,&dyn_asset]( asset_object& a ) {
+     create<asset_object>( [&genesis_state,&dyn_asset]( asset_object& a ) {
          a.symbol = GRAPHENE_SYMBOL_VOTE;
          a.options.max_supply = GRAPHENE_MAX_SHARE_SUPPLY_VOTE;
          a.precision = GRAPHENE_BLOCKCHAIN_PRECISION_DIGITS_VOTE;
