@@ -24,6 +24,7 @@
 
 #include <graphene/chain/database.hpp>
 #include <graphene/chain/fba_accumulator_id.hpp>
+
 #include <graphene/chain/account_object.hpp>
 #include <graphene/chain/asset_object.hpp>
 #include <graphene/chain/balance_object.hpp>
@@ -46,6 +47,7 @@
 #include <graphene/chain/witness_schedule_object.hpp>
 #include <graphene/chain/worker_object.hpp>
 #include <graphene/chain/htlc_object.hpp>
+
 #include <graphene/chain/account_evaluator.hpp>
 #include <graphene/chain/asset_evaluator.hpp>
 #include <graphene/chain/assert_evaluator.hpp>
@@ -61,7 +63,9 @@
 #include <graphene/chain/witness_evaluator.hpp>
 #include <graphene/chain/worker_evaluator.hpp>
 #include <graphene/chain/htlc_evaluator.hpp>
+
 #include <fc/crypto/digest.hpp>
+
 #include <boost/algorithm/string.hpp>
 
 namespace graphene { namespace chain {
@@ -122,6 +126,7 @@ const uint8_t worker_object::type_id;
 
 const uint8_t htlc_object::space_id;
 const uint8_t htlc_object::type_id;
+
 
 void database::initialize_evaluators()
 {
@@ -364,7 +369,7 @@ void database::init_genesis(const genesis_state_type& genesis_state)
    const asset_object& core_asset =
      create<asset_object>( [&genesis_state,&dyn_asset]( asset_object& a ) {
          a.symbol = GRAPHENE_SYMBOL;
-         a.options.max_supply = GRAPHENE_MAX_SHARE_SUPPLY;
+         a.options.max_supply = genesis_state.max_core_supply;
          a.precision = GRAPHENE_BLOCKCHAIN_PRECISION_DIGITS;
          a.options.flags = 0;
          a.options.issuer_permissions = 0;
@@ -380,27 +385,7 @@ void database::init_genesis(const genesis_state_type& genesis_state)
    FC_ASSERT( get_balance(account_id_type(), asset_id_type()) == asset(dyn_asset.current_supply) );
    _p_core_asset_obj = &core_asset;
    _p_core_dynamic_data_obj = &dyn_asset;
-
-   // Create vote asset
-   
-   uint64_t id = get_index<asset_object>().get_next_id().instance();
-   const asset_object& asset_obj =
-     create<asset_object>( [&genesis_state,&dyn_asset]( asset_object& a ) {
-         a.symbol = GRAPHENE_SYMBOL_VOTE;
-         a.options.max_supply = GRAPHENE_MAX_SHARE_SUPPLY_VOTE;
-         a.precision = GRAPHENE_BLOCKCHAIN_PRECISION_DIGITS_VOTE;
-         a.options.flags = 0;
-         a.options.issuer_permissions = 0;
-         a.issuer = GRAPHENE_NULL_ACCOUNT;
-         a.options.core_exchange_rate.base.amount = 1;
-         a.options.core_exchange_rate.base.asset_id = asset_id_type(0);
-         a.options.core_exchange_rate.quote.amount = 1;
-         a.options.core_exchange_rate.quote.asset_id = asset_id_type(0);
-         a.dynamic_asset_data_id = dyn_asset.id;
-      });
-      FC_ASSERT( asset_obj.get_id() == asset_id_type(id) );
-      remove( asset_obj );
-   
+   // Create more special assets
    while( true )
    {
       uint64_t id = get_index<asset_object>().get_next_id().instance();
@@ -426,7 +411,7 @@ void database::init_genesis(const genesis_state_type& genesis_state)
       FC_ASSERT( asset_obj.get_id() == asset_id_type(id) );
       remove( asset_obj );
    }
-   
+
    chain_id_type chain_id = genesis_state.compute_chain_id();
 
    // Create global properties
