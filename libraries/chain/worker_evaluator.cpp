@@ -57,7 +57,7 @@ struct worker_init_visitor
       vesting_balance_worker_type w;
        w.balance = db.create<vesting_balance_object>([&](vesting_balance_object& b) {
          b.owner = worker.worker_account;
-         b.balance = asset(1);
+         b.balance = asset(0);
          b.balance_type = vesting_balance_type::worker;
 
          cdd_vesting_policy policy;
