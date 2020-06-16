@@ -62,7 +62,7 @@ void database::adjust_balance(account_id_type account, asset delta )
    {
       FC_ASSERT( delta.amount > 0, "Insufficient Balance: ${a}'s balance of ${b} is less than required ${r}", 
                  ("a",account(*this).name)
-                 ("b",to_pretty_string(asset(1,delta.asset_id)))
+                 ("b",to_pretty_string(asset(0,delta.asset_id)))
                  ("r",to_pretty_string(-delta)));
       create<account_balance_object>([account,&delta](account_balance_object& b) {
          b.owner = account;
